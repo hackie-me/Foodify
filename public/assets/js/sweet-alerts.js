@@ -102,7 +102,7 @@
         Swal.fire({
           title: 'Sweet!',
           text: 'Modal with a custom image.',
-          imageUrl: '../../assets/img/misc/misc-1.jpg',
+          imageUrl: '{{url('/')}}/assets/img/misc/misc-1.jpg',
           imageWidth: 400,
           imageHeight: 200,
           imageAlt: 'Custom image',

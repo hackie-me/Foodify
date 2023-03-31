@@ -5,7 +5,7 @@
         <span class="ms-toggler-bar bg-primary"></span>
     </div>
     <div class="logo-sn logo-sm ms-d-block-sm">
-        <a class="pl-0 ml-0 text-center navbar-brand mr-0" href="index.html"><img src="assets/img/foodify/logo.svg" alt="logo"> </a>
+        <a class="pl-0 ml-0 text-center navbar-brand mr-0" href="index.html"><img src="{{url('/')}}/assets/img/foodify/logo.svg" alt="logo"> </a>
     </div>
     <ul class="ms-nav-list ms-inline mb-0" id="ms-nav-options">
         <li class="ms-nav-item ms-search-form pb-0 py-0">
@@ -24,7 +24,7 @@
                 <li class="ms-scrollable ms-dropdown-list">
                     <a class="media p-2" href="#">
                         <div class="ms-chat-status ms-status-offline ms-chat-img mr-2 align-self-center">
-                            <img src="assets/img/foodify/customer-3.jpg" class="ms-img-round" alt="people">
+                            <img src="{{url('/')}}/assets/img/foodify/customer-3.jpg" class="ms-img-round" alt="people">
                         </div>
                         <div class="media-body"> <span>Hey man, looking forward to your new project.</span>
                             <p class="fs-10 my-1 text-disabled"><i class="material-icons">access_time</i> 30 seconds ago</p>
@@ -32,7 +32,7 @@
                     </a>
                     <a class="media p-2" href="#">
                         <div class="ms-chat-status ms-status-online ms-chat-img mr-2 align-self-center">
-                            <img src="assets/img/foodify/customer-2.jpg" class="ms-img-round" alt="people">
+                            <img src="{{url('/')}}/assets/img/foodify/customer-2.jpg" class="ms-img-round" alt="people">
                         </div>
                         <div class="media-body"> <span>Dear John, I was told you bought foodify! Send me your feedback</span>
                             <p class="fs-10 my-1 text-disabled"><i class="material-icons">access_time</i> 28 minutes ago</p>
@@ -40,7 +40,7 @@
                     </a>
                     <a class="media p-2" href="#">
                         <div class="ms-chat-status ms-status-offline ms-chat-img mr-2 align-self-center">
-                            <img src="assets/img/foodify/customer-1.jpg" class="ms-img-round" alt="people">
+                            <img src="{{url('/')}}/assets/img/foodify/customer-1.jpg" class="ms-img-round" alt="people">
                         </div>
                         <div class="media-body"> <span>How many people are we inviting to the dashboard?</span>
                             <p class="fs-10 my-1 text-disabled"><i class="material-icons">access_time</i> 6 hours ago</p>
@@ -88,7 +88,7 @@
 
         <li class="ms-nav-item ms-nav-user dropdown">
             <a href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img class="ms-user-img ms-img-round float-right" src="assets/img/foodify/customer-6.jpg" alt="people">
+                <img class="ms-user-img ms-img-round float-right" src="{{url('/')}}/assets/img/foodify/customer-6.jpg" alt="people">
             </a>
             <ul class="dropdown-menu dropdown-menu-right user-dropdown" aria-labelledby="userDropdown">
                 <li class="dropdown-menu-header">

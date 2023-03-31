@@ -24,7 +24,7 @@
       element: '#step-3',
       popover: {
         title: 'Popover with Image',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. <img src="../../assets/img/misc/misc-1.jpg" alt="img"/>',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. <img src="{{url('/')}}/assets/img/misc/misc-1.jpg" alt="img"/>',
         position: 'top'
       }
     },

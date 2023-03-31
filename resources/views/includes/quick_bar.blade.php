@@ -167,8 +167,8 @@
                                 vel varius metus. Pellentesque eget orci malesuada, venenatis magna et
                             </p>
                             <ul class="ms-note-members clearfix mb-0">
-                                <li class="ms-deletable"> <img src="assets/img/people/people-3.jpg" alt="member"> </li>
-                                <li class="ms-deletable"> <img src="assets/img/people/people-5.jpg" alt="member"> </li>
+                                <li class="ms-deletable"> <img src="{{url('/')}}/assets/img/people/people-3.jpg" alt="member"> </li>
+                                <li class="ms-deletable"> <img src="{{url('/')}}/assets/img/people/people-5.jpg" alt="member"> </li>
                             </ul>
                         </div>
                         <div class="ms-card-footer clearfix">
@@ -185,7 +185,7 @@
                                     <li class="ms-scrollable ms-dropdown-list ms-members-list">
                                         <a class="media p-2" href="#">
                                             <div class="mr-2 align-self-center">
-                                                <img src="assets/img/people/people-10.jpg" class="ms-img-round" alt="people">
+                                                <img src="{{url('/')}}/assets/img/people/people-10.jpg" class="ms-img-round" alt="people">
                                             </div>
                                             <div class="media-body">
                                                 <span>John Doe</span>
@@ -193,7 +193,7 @@
                                         </a>
                                         <a class="media p-2" href="#">
                                             <div class="mr-2 align-self-center">
-                                                <img src="assets/img/people/people-9.jpg" class="ms-img-round" alt="people">
+                                                <img src="{{url('/')}}/assets/img/people/people-9.jpg" class="ms-img-round" alt="people">
                                             </div>
                                             <div class="media-body">
                                                 <span>Raymart Sandiago</span>
@@ -201,7 +201,7 @@
                                         </a>
                                         <a class="media p-2" href="#">
                                             <div class="mr-2 align-self-center">
-                                                <img src="assets/img/people/people-7.jpg" class="ms-img-round" alt="people">
+                                                <img src="{{url('/')}}/assets/img/people/people-7.jpg" class="ms-img-round" alt="people">
                                             </div>
                                             <div class="media-body">
                                                 <span>Heather Brown</span>
@@ -228,7 +228,7 @@
                                 vel varius metus. Pellentesque eget orci malesuada, venenatis magna et
                             </p>
                             <ul class="ms-note-members clearfix mb-0">
-                                <li class="ms-deletable"> <img src="assets/img/people/people-9.jpg" alt="member"> </li>
+                                <li class="ms-deletable"> <img src="{{url('/')}}/assets/img/people/people-9.jpg" alt="member"> </li>
                             </ul>
                         </div>
                         <div class="ms-card-footer clearfix">
@@ -245,7 +245,7 @@
                                     <li class="ms-scrollable ms-dropdown-list ms-members-list">
                                         <a class="media p-2" href="#">
                                             <div class="mr-2 align-self-center">
-                                                <img src="assets/img/people/people-10.jpg" class="ms-img-round" alt="people">
+                                                <img src="{{url('/')}}/assets/img/people/people-10.jpg" class="ms-img-round" alt="people">
                                             </div>
                                             <div class="media-body">
                                                 <span>John Doe</span>
@@ -253,7 +253,7 @@
                                         </a>
                                         <a class="media p-2" href="#">
                                             <div class="mr-2 align-self-center">
-                                                <img src="assets/img/people/people-9.jpg" class="ms-img-round" alt="people">
+                                                <img src="{{url('/')}}/assets/img/people/people-9.jpg" class="ms-img-round" alt="people">
                                             </div>
                                             <div class="media-body">
                                                 <span>Raymart Sandiago</span>
@@ -261,7 +261,7 @@
                                         </a>
                                         <a class="media p-2" href="#">
                                             <div class="mr-2 align-self-center">
-                                                <img src="assets/img/people/people-7.jpg" class="ms-img-round" alt="people">
+                                                <img src="{{url('/')}}/assets/img/people/people-7.jpg" class="ms-img-round" alt="people">
                                             </div>
                                             <div class="media-body">
                                                 <span>Heather Brown</span>

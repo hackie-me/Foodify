@@ -80,22 +80,22 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <td class="ms-table-f-w"> <img src="assets/img/foodify/pizza.jpg" alt="people"> Pizza </td>
+                                <td class="ms-table-f-w"> <img src="{{url('/')}}/assets/img/foodify/pizza.jpg" alt="people"> Pizza </td>
                                 <td>$19.99</td>
                                 <td>67384917</td>
                             </tr>
                             <tr>
-                                <td class="ms-table-f-w"> <img src="assets/img/foodify/french-fries.jpg" alt="people"> French Fries </td>
+                                <td class="ms-table-f-w"> <img src="{{url('/')}}/assets/img/foodify/french-fries.jpg" alt="people"> French Fries </td>
                                 <td>$14.59</td>
                                 <td>789393819</td>
                             </tr>
                             <tr>
-                                <td class="ms-table-f-w"> <img src="assets/img/foodify/cereals.jpg" alt="people"> Multigrain Hot Cereal </td>
+                                <td class="ms-table-f-w"> <img src="{{url('/')}}/assets/img/foodify/cereals.jpg" alt="people"> Multigrain Hot Cereal </td>
                                 <td>$25.22</td>
                                 <td>137893137</td>
                             </tr>
                             <tr>
-                                <td class="ms-table-f-w"> <img src="assets/img/foodify/egg-sandwich.jpg" alt="people"> Fried Egg Sandwich </td>
+                                <td class="ms-table-f-w"> <img src="{{url('/')}}/assets/img/foodify/egg-sandwich.jpg" alt="people"> Fried Egg Sandwich </td>
                                 <td>$11.23</td>
                                 <td>235193138</td>
                             </tr>
@@ -158,7 +158,7 @@
                         <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
                             <div class="ms-card no-margin">
                                 <div class="ms-card-img">
-                                    <img src="assets/img/foodify/food-5.jpg" alt="card_img">
+                                    <img src="{{url('/')}}/assets/img/foodify/food-5.jpg" alt="card_img">
                                 </div>
                                 <div class="ms-card-body">
                                     <div class="ms-card-heading-title">
@@ -176,7 +176,7 @@
                         <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
                             <div class="ms-card no-margin">
                                 <div class="ms-card-img">
-                                    <img src="assets/img/foodify/food-2.jpg" alt="card_img">
+                                    <img src="{{url('/')}}/assets/img/foodify/food-2.jpg" alt="card_img">
                                 </div>
                                 <div class="ms-card-body">
                                     <div class="ms-card-heading-title">
@@ -194,7 +194,7 @@
                         <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
                             <div class="ms-card no-margin">
                                 <div class="ms-card-img">
-                                    <img src="assets/img/foodify/food-4.jpg" alt="card_img">
+                                    <img src="{{url('/')}}/assets/img/foodify/food-4.jpg" alt="card_img">
                                 </div>
                                 <div class="ms-card-body">
                                     <div class="ms-card-heading-title">
@@ -212,7 +212,7 @@
                         <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
                             <div class="ms-card no-margin">
                                 <div class="ms-card-img">
-                                    <img src="assets/img/foodify/food-3.jpg" alt="card_img">
+                                    <img src="{{url('/')}}/assets/img/foodify/food-3.jpg" alt="card_img">
                                 </div>
                                 <div class="ms-card-body">
                                     <div class="ms-card-heading-title">
@@ -645,7 +645,7 @@
                                 <div class="ms-card-body">
                                     <div class="media fs-14">
                                         <div class="mr-2 align-self-center">
-                                            <img src="assets/img/foodify/customer-1.jpg" class="ms-img-round" alt="people">
+                                            <img src="{{url('/')}}/assets/img/foodify/customer-1.jpg" class="ms-img-round" alt="people">
                                         </div>
                                         <div class="media-body">
                                             <h6>Hunger House </h6>
@@ -687,7 +687,7 @@
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nunc velit, dictum eget nulla a, sollicitudin rhoncus orci. Vivamus nec commodo turpis.</p>
                                 </div>
                                 <div class="ms-card-img">
-                                    <img src="assets/img/foodify/food-1.jpg" alt="card_img">
+                                    <img src="{{url('/')}}/assets/img/foodify/food-1.jpg" alt="card_img">
                                 </div>
                                 <div class="ms-card-footer text-disabled d-flex">
                                     <div class="ms-card-options">
@@ -704,7 +704,7 @@
                                 <div class="ms-card-body">
                                     <div class="media fs-14">
                                         <div class="mr-2 align-self-center">
-                                            <img src="assets/img/foodify/customer-2.jpg" class="ms-img-round" alt="people">
+                                            <img src="{{url('/')}}/assets/img/foodify/customer-2.jpg" class="ms-img-round" alt="people">
                                         </div>
                                         <div class="media-body">
                                             <h6>Food Lounge</h6>
@@ -746,7 +746,7 @@
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nunc velit, dictum eget nulla a, sollicitudin rhoncus orci. Vivamus nec commodo turpis.</p>
                                 </div>
                                 <div class="ms-card-img">
-                                    <img src="assets/img/foodify/food-2.jpg" alt="card_img">
+                                    <img src="{{url('/')}}/assets/img/foodify/food-2.jpg" alt="card_img">
                                 </div>
                                 <div class="ms-card-footer text-disabled d-flex">
                                     <div class="ms-card-options">
@@ -763,7 +763,7 @@
                                 <div class="ms-card-body">
                                     <div class="media fs-14">
                                         <div class="mr-2 align-self-center">
-                                            <img src="assets/img/foodify/customer-6.jpg" class="ms-img-round" alt="people">
+                                            <img src="{{url('/')}}/assets/img/foodify/customer-6.jpg" class="ms-img-round" alt="people">
                                         </div>
                                         <div class="media-body">
                                             <h6>Delizious </h6>
@@ -805,7 +805,7 @@
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nunc velit, dictum eget nulla a, sollicitudin rhoncus orci. Vivamus nec commodo turpis.</p>
                                 </div>
                                 <div class="ms-card-img">
-                                    <img src="assets/img/foodify/food-3.jpg" alt="card_img">
+                                    <img src="{{url('/')}}/assets/img/foodify/food-3.jpg" alt="card_img">
                                 </div>
                                 <div class="ms-card-footer text-disabled d-flex">
                                     <div class="ms-card-options">
@@ -837,7 +837,7 @@
                     <ul class="ms-list ms-feed ms-twitter-feed ms-recent-support-tickets">
                         <li class="ms-list-item">
                             <a href="#" class="media clearfix">
-                                <img src="assets/img/foodify/customer-4.jpg" class="ms-img-round ms-img-small" alt="This is another feature">
+                                <img src="{{url('/')}}/assets/img/foodify/customer-4.jpg" class="ms-img-round ms-img-small" alt="This is another feature">
                                 <div class="media-body">
                                     <div class="d-flex justify-content-between">
                                         <h6 class="ms-feed-user mb-0">Lorem ipsum dolor</h6>
@@ -858,7 +858,7 @@
                         </li>
                         <li class="ms-list-item">
                             <a href="#" class="media clearfix">
-                                <img src="assets/img/foodify/customer-1.jpg" class="ms-img-round ms-img-small" alt="This is another feature">
+                                <img src="{{url('/')}}/assets/img/foodify/customer-1.jpg" class="ms-img-round ms-img-small" alt="This is another feature">
                                 <div class="media-body">
                                     <div class="d-flex justify-content-between">
                                         <h6 class="ms-feed-user mb-0">Lorem ipsum dolor</h6>
@@ -879,7 +879,7 @@
                         </li>
                         <li class="ms-list-item">
                             <a href="#" class="media clearfix">
-                                <img src="assets/img/foodify/customer-7.jpg" class="ms-img-round ms-img-small" alt="This is another feature">
+                                <img src="{{url('/')}}/assets/img/foodify/customer-7.jpg" class="ms-img-round ms-img-small" alt="This is another feature">
                                 <div class="media-body">
                                     <div class="d-flex justify-content-between">
                                         <h6 class="ms-feed-user mb-0">Lorem ipsum dolor</h6>
@@ -907,10 +907,10 @@
 @endsection
 
 @section('page_scripts')
-    <script src="assets/js/Chart.bundle.min.js"></script>
-    <script src="assets/js/widgets.js"></script>
-    <script src="assets/js/clients.js"></script>
-    <script src="assets/js/Chart.Financial.js"></script>
-    <script src="assets/js/d3.v3.min.js"></script>
-    <script src="assets/js/topojson.v1.min.js"></script>
+    <script src="{{url('/')}}/assets/js/Chart.bundle.min.js"></script>
+    <script src="{{url('/')}}/assets/js/widgets.js"></script>
+    <script src="{{url('/')}}/assets/js/clients.js"></script>
+    <script src="{{url('/')}}/assets/js/Chart.Financial.js"></script>
+    <script src="{{url('/')}}/assets/js/d3.v3.min.js"></script>
+    <script src="{{url('/')}}/assets/js/topojson.v1.min.js"></script>
 @endsection
