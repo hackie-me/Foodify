@@ -74,28 +74,28 @@
                                     </thead>
                                     <tbody>
                                     <tr>
-                                        <td class="ms-table-f-w"><img src="../assets/img/foodtech/pizza.jpg"
+                                        <td class="ms-table-f-w"><img src="{{url('/')}}/assets/img/foodify/pizza.jpg"
                                                                       alt="people"> Pizza
                                         </td>
                                         <td>$20</td>
                                         <td>67384917</td>
                                     </tr>
                                     <tr>
-                                        <td class="ms-table-f-w"><img src="../assets/img/foodtech/french-fries.jpg"
+                                        <td class="ms-table-f-w"><img src="{{url('/')}}/assets/img/foodify/french-fries.jpg"
                                                                       alt="people"> French Fries
                                         </td>
                                         <td>$14</td>
                                         <td>789393819</td>
                                     </tr>
                                     <tr>
-                                        <td class="ms-table-f-w"><img src="../assets/img/foodtech/cereals.jpg"
+                                        <td class="ms-table-f-w"><img src="{{url('/')}}/assets/img/foodify/cereals.jpg"
                                                                       alt="people"> Multigrain Hot Cereal
                                         </td>
                                         <td>$25</td>
                                         <td>137893137</td>
                                     </tr>
                                     <tr>
-                                        <td class="ms-table-f-w"><img src="../assets/img/foodtech/egg-sandwich.jpg"
+                                        <td class="ms-table-f-w"><img src="{{url('/')}}/assets/img/foodify/egg-sandwich.jpg"
                                                                       alt="people"> Fried Egg Sandwich
                                         </td>
                                         <td>$10</td>

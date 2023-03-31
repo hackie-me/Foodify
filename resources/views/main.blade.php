@@ -28,7 +28,6 @@
 @include('includes.modal.modal_reminder')
 <!-- SCRIPTS -->
 <!-- Global Required Scripts Start -->
-@include('includes.scripts')
 @push('page_scripts')
     @yield('page_scripts')
 @endpush

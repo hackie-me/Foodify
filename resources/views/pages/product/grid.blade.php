@@ -18,7 +18,7 @@
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                     <div class="ms-card">
                         <div class="ms-card-img">
-                            <img src="../../assets/img/foodtech/food-1.jpg" alt="card_img">
+                            <img src="{{url('/')}}/assets/img/foodify/food-1.jpg" alt="card_img">
                         </div>
                         <div class="ms-card-body">
 
@@ -42,7 +42,7 @@
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                     <div class="ms-card">
                         <div class="ms-card-img">
-                            <img src="../../assets/img/foodtech/food-2.jpg" alt="card_img">
+                            <img src="{{url('/')}}/assets/img/foodify/food-2.jpg" alt="card_img">
                         </div>
                         <div class="ms-card-body">
                             <div class="new">
@@ -66,7 +66,7 @@
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                     <div class="ms-card">
                         <div class="ms-card-img">
-                            <img src="../../assets/img/foodtech/food-3.jpg" alt="card_img">
+                            <img src="{{url('/')}}/assets/img/foodify/food-3.jpg" alt="card_img">
                         </div>
                         <div class="ms-card-body">
                             <div class="new">
@@ -90,7 +90,7 @@
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                     <div class="ms-card">
                         <div class="ms-card-img">
-                            <img src="../../assets/img/foodtech/food-4.jpg" alt="card_img">
+                            <img src="{{url('/')}}/assets/img/foodify/food-4.jpg" alt="card_img">
                         </div>
                         <div class="ms-card-body">
                             <div class="new">
@@ -115,7 +115,7 @@
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                     <div class="ms-card">
                         <div class="ms-card-img">
-                            <img src="../../assets/img/foodtech/food-5.jpg" alt="card_img">
+                            <img src="{{url('/')}}/assets/img/foodify/food-5.jpg" alt="card_img">
                         </div>
                         <div class="ms-card-body">
                             <div class="new">
@@ -138,7 +138,7 @@
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                     <div class="ms-card">
                         <div class="ms-card-img">
-                            <img src="../../assets/img/foodtech/food-6.jpg" alt="card_img">
+                            <img src="{{url('/')}}/assets/img/foodify/food-6.jpg" alt="card_img">
                         </div>
                         <div class="ms-card-body">
                             <div class="new">
@@ -161,7 +161,7 @@
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                     <div class="ms-card">
                         <div class="ms-card-img">
-                            <img src="../../assets/img/foodtech/food-7.jpg" alt="card_img">
+                            <img src="{{url('/')}}/assets/img/foodify/food-7.jpg" alt="card_img">
                         </div>
                         <div class="ms-card-body">
                             <div class="new">
@@ -185,7 +185,7 @@
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                     <div class="ms-card">
                         <div class="ms-card-img">
-                            <img src="../../assets/img/foodtech/food-8.jpg" alt="card_img">
+                            <img src="{{url('/')}}/assets/img/foodify/food-8.jpg" alt="card_img">
                         </div>
                         <div class="ms-card-body">
                             <div class="new">
