@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('conversations', function (Blueprint $table) {
+        Schema::create('todo_items', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id_1')->unsigned();
-            $table->integer('user_id_2')->unsigned();
-            $table->timestamp('last_message_timestamp');
-            $table->foreign('user_id_1')->references('id')->on('users');
-            $table->foreign('user_id_2')->references('id')->on('users');
+            $table->foreignId('block_id')->constrained()->onDelete('cascade');
+            $table->string('name');
+            $table->boolean('is_completed')->default(false);
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('conversations');
+        Schema::dropIfExists('todo_items');
     }
 };
