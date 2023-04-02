@@ -8,12 +8,7 @@
     <div class="row">
 
         <div class="col-md-12">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb pl-0">
-                    <li class="breadcrumb-item"><a href="#"><i class="material-icons">home</i> Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Sales</li>
-                </ol>
-            </nav>
+            <x-bread-crump url="sales" title="sales"/>
         </div>
         <div class="col-12">
             <div class="ms-panel">
@@ -32,6 +27,6 @@
     </div>
 @endsection
 
-@section('page_scripts')
+@section('page-scripts')
 
 @endsection

@@ -8,13 +8,8 @@
     <div class="row">
 
         <div class="col-md-12">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb pl-0">
-                    <li class="breadcrumb-item"><a href="#"><i class="material-icons">home</i> Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Restaurant List</li>
+            <x-bread-crump url="restaurants" title="Restaurants"/>
 
-                </ol>
-            </nav>
             <!-- Active Orders Graph -->
             <div class="row">
                 <div class="col-lg-6 col-md-12">
@@ -396,7 +391,7 @@
     </div>
 @endsection
 
-@section('page_scripts')
+@section('page-scripts')
     <script src="{{url('/')}}/assets/js/Chart.bundle.min.js"></script>
     <script src="{{url('/')}}/assets/js/Resturant.js"></script>
 @endsection

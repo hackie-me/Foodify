@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('groups', function (Blueprint $table) {
+        Schema::create('todo_blocks', function (Blueprint $table) {
             $table->id();
-            $table->string('group_name');
-            $table->integer('admin_user_id')->unsigned();
-            $table->timestamp('last_message_timestamp');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('name');
+            $table->boolean('is_archived')->default(false);
             $table->timestamps();
-            $table->foreign('admin_user_id')->references('id')->on('users');
         });
     }
 
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('groups');
+        Schema::dropIfExists('todo_blocks');
     }
 };

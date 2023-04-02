@@ -73,6 +73,12 @@
             </a>
         </li>
 
+        <!-- settings -->
+        <li class="menu-item">
+            <a href="{{url("/settings")}}"> <span><i class="fa flaticon-gear fs-16"></i>Settings</span>
+            </a>
+        </li>
+
         <!-- Apps -->
         <li class="menu-item">
             <a href="#" class="has-chevron" data-toggle="collapse" data-target="#apps" aria-expanded="false"

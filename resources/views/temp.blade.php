@@ -8,6 +8,6 @@
 
 @endsection
 
-@section('page_scripts')
+@section('page-scripts')
 
 @endsection

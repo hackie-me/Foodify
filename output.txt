@@ -1,0 +1,292 @@
+|   .env
+|   artisan
+|   composer.json
+|   composer.lock
+|   package.json
+|   phpunit.xml
+|   REDME.md
+|   vite.config.js
+|    
++---app   
+|   +---Http
+|   |   |   Kernel.php
+|   |   |   
+|   |   +---Controllers
+|   |   |   |   Authentication.php
+|   |   |   |   Controller.php
+|   |   |   |   Customer.php
+|   |   |   |   Dashboard.php
+|   |   |   |   FAQ.php
+|   |   |   |   Invoice.php
+|   |   |   |   Orders.php
+|   |   |   |   Products.php
+|   |   |   |   Profile.php
+|   |   |   |   Restaurant.php
+|   |   |   |   Review.php
+|   |   |   |   Sales.php
+|   |   |   |   Settings.php
+|   |   |   |   Social.php
+|   |   |   |   
+|   |   |   +---app
+|   |   |   |       Chat.php
+|   |   |   |       Email.php
+|   |   |   |       Notes.php
+|   |   |   |       Todo.php
+|   |   |   |       
+|   |   |   \---menu
+|   |   |           MenuCatalogue.php
+|   |   |           MenuGrid.php
+|   |   |           MenuList.php
+|   |   |           
+|   |   \---Middleware
+|   |           Authenticate.php
+|   |           EncryptCookies.php
+|   |           PreventRequestsDuringMaintenance.php
+|   |           RedirectIfAuthenticated.php
+|   |           TrimStrings.php
+|   |           TrustHosts.php
+|   |           TrustProxies.php
+|   |           ValidateSignature.php
+|   |           VerifyCsrfToken.php
+|   |           
+|   +---Models
+|   |       TodoBlock.php
+|   |       TodoItems.php
+|   |       User.php
++---database    
+    +---migrations
+           2014_10_12_000000_create_users_table.php
+           2014_10_12_100000_create_password_resets_table.php
+           2019_08_19_000000_create_failed_jobs_table.php
+           2019_12_14_000001_create_personal_access_tokens_table.php
+           2023_04_01_163440_create_todo_blocks_table.php
+           2023_04_01_164004_create_todo_items_table.php                    
++---public
+|   |   .htaccess
+|   |   favicon.ico
+|   |   index.php
+|   |   robots.txt
+|   |   
+|   +---assets
+|      |   icon
+|      |   
+|      +---css
+|      |       animate.min.css
+|      |       bootstrap.min.css
+|      |       bootstrap.min.css.map
+|      |       cropper.min.css
+|      |       datatables.min.css
+|      |       driver.min.css
+|      |       ion.rangeSlider.min.css
+|      |       jquery-ui.min.css
+|      |       morris.css
+|      |       slick.css
+|      |       style.css
+|      |       sweetalert2.min.css
+|      |       toastr.min.css
+|      |       
+|      +---fonts
+|      |       Roboto-Bold.ttf
+|      |       Roboto-Medium.ttf
+|      |       Roboto-Regular.ttf
+|      |       
+|      +---img
+|      |   +---foodify
+|      |   |       add-product-1.jpg
+|      |   |       add-product-2.jpg
+|      |   |       add-product-3.jpg
+|      |   |       add-product-4.jpg
+|      |   |       banner-1.jpg
+|      |   |       banner-1000x370.jpg
+|      |   |       banner-2.jpg
+|      |   |       banner-3.jpg
+|      |   |       banner-4.jpg
+|      |   |       cereals.jpg
+|      |   |       coming-soon.jpg
+|      |   |       country-1.jpg
+|      |   |       country-2.jpg
+|      |   |       country-3.jpg
+|      |   |       country-4.jpg
+|      |   |       country-5.jpg
+|      |   |       cropper.jpg
+|      |   |       customer-1.jpg
+|      |   |       customer-10.jpg
+|      |   |       customer-2.jpg
+|      |   |       customer-3.jpg
+|      |   |       customer-4.jpg
+|      |   |       customer-5.jpg
+|      |   |       customer-6.jpg
+|      |   |       customer-7.jpg
+|      |   |       customer-8.jpg
+|      |   |       customer-9.jpg
+|      |   |       default-login.jpg
+|      |   |       egg-sandwich.jpg
+|      |   |       food-1.jpg
+|      |   |       food-2.jpg
+|      |   |       food-3.jpg
+|      |   |       food-4.jpg
+|      |   |       food-5.jpg
+|      |   |       food-6.jpg
+|      |   |       food-7.jpg
+|      |   |       food-8.jpg
+|      |   |       foodtech-logo-216x62.png
+|      |   |       foodtech-logo-84x41.png
+|      |   |       french-fries.jpg
+|      |   |       lock-screen.jpg
+|      |   |       logo.svg
+|      |   |       pizza.jpg
+|      |   |       portfolio-1.jpg
+|      |   |       portfolio-2.jpg
+|      |   |       portfolio-3.jpg
+|      |   |       portfolio-4.jpg
+|      |   |       portfolio-5.jpg
+|      |   |       portfolio-6.jpg
+|      |   |       
+|      |   +---payment
+|      |   |       payment-master.png
+|      |   |       payment-payoneer.png
+|      |   |       payment-paypal.png
+|      |   |       payment-visa.png
+|      |   |       
+|      |   \---people
+|      |           people-10.jpg
+|      |           people-3.jpg
+|      |           people-5.jpg
+|      |           people-7.jpg
+|      |           people-9.jpg
+|      |           
+|      \---js
+|           animate.js
+|           bootstrap.min.js
+|           bootstrap.min.js.map
+|           Chart.bundle.min.js
+|           Chart.Financial.js
+|           charts.js
+|           client-managemenet.js
+|           clients.js
+|           coming-soon.js
+|           crop.js
+|           cropper.min.js
+|           d3.v3.min.js
+|           data-tables.js
+|           datamaps.all.min.js
+|           datatables.min.js
+|           driver.min.js
+|           form-wizard.js
+|           framework.js
+|           google-maps.js
+|           ion.rangeSlider.min.js
+|           jquery-3.3.1.min.js
+|           jquery-ui.min.js
+|           jquery.countdown.min.js
+|           jquery.steps.min.js
+|           jquery.webticker.min.js
+|           moment.js
+|           morris-charts.js
+|           morris.min.js
+|           perfect-scrollbar.js
+|           popper.min.js
+|           project-management.js
+|           promise.min.js
+|           range-slider.js
+|           raphael.min.js
+|           Resturant.js
+|           settings.js
+|           slick.min.js
+|           social.js
+|           sweet-alerts.js
+|           sweetalert2.min.js
+|           toast.js
+|           toastr.min.js
+|           topojson.v1.min.js
+|           tour.js
+|           vector-maps.js
+|           web-analytics.js
+|           widgets.js
+|                       
++---resources
+|   +---css
+|   |       app.css
+|   |       
+|   +---js
+|   |       app.js
+|   |       bootstrap.js
+|   |       
+|   \---views
+|       |   main.blade.php
+|       |   temp.blade.php
+|       |   
+|       +---app
+|       |       chat.blade.php
+|       |       email.blade.php
+|       |       todo.blade.php
+|       |       
+|       +---errors
+|       |       404.blade.php
+|       |       
+|       +---includes
+|       |   |   navbar.blade.php
+|       |   |   overlays.blade.php
+|       |   |   pre_loader.blade.php
+|       |   |   quick_bar.blade.php
+|       |   |   scripts.blade.php
+|       |   |   styles.blade.php
+|       |   |   
+|       |   +---modal
+|       |   |       modal_notes.blade.php
+|       |   |       modal_reminder.blade.php
+|       |   |       
+|       |   +---sidebar
+|       |   |       sidebar_left.blade.php
+|       |   |       sidebar_right.blade.php
+|       |   |       
+|       |   \---widgets
+|       |           chart_favourite.blade.php
+|       |           chart_order_timing.blade.php
+|       |           dialogue_email.blade.php
+|       |           dialogue_notification.blade.php
+|       |           monthly_revenue.blade.php
+|       |           new_restaurant_listing.blade.php
+|       |           recently_placed_order.blade.php
+|       |           recent_order_requested.blade.php
+|       |           recent_support_tickets.blade.php
+|       |           trending_order..blade.php
+|       |           
+|       +---layout
+|       |       footer.blade.php
+|       |       header.blade.php
+|       |       
+|       \---pages
+|           |   dashboard.blade.php
+|           |   faq.blade.php
+|           |   maintenance.blade.php
+|           |   orders.blade.php
+|           |   restaurants.blade.php
+|           |   sales.blade.php
+|           |   settings.blade.php
+|           |   social.blade.php
+|           |   
+|           +---auth
+|           |       lockscreen.blade.php
+|           |       login.blade.php
+|           |       register.blade.php
+|           |       
+|           +---customers
+|           |       list.blade.php
+|           |       review.blade.php
+|           |       
+|           +---invoice
+|           |       details.blade.php
+|           |       list.blade.php
+|           |       
+|           \---product
+|                   add.blade.php
+|                   catalogue.blade.php
+|                   grid.blade.php
+|                   list.blade.php
+|                   
++---routes
+|       api.php
+|       channels.php
+|       console.php
+|       web.php

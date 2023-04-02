@@ -14,6 +14,8 @@
 {{--Main Content--}}
 <!-- Main Content -->
 <main class="body-content">
+    <input type="hidden" id="uid" value="{{auth()->user()->id}}">
+
     <!-- Navigation Bar -->
     @include('includes.navbar')
     <!-- Body Content Wrapper -->
@@ -26,11 +28,6 @@
 <!-- Modals -->
 @include('includes.modal.modal_notes')
 @include('includes.modal.modal_reminder')
-<!-- SCRIPTS -->
-<!-- Global Required Scripts Start -->
-@push('page_scripts')
-    @yield('page_scripts')
-@endpush
 </body>
 {{--Footer--}}
 @include('layout.footer')

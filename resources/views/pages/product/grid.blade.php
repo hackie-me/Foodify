@@ -210,6 +210,6 @@
     </div>
 @endsection
 
-@section('page-script')
+@section('page-scripts')
 
 @endsection

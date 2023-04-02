@@ -7,7 +7,8 @@
 @section('main_content')
     <div class="row">
         <div class="col-md-12">
-            <h1 class="db-header-title">Welcome, Hardik</h1>
+
+            <h1 class="db-header-title">Welcome, {{Auth::user()->first_name . ' ' . Auth::user()->last_name}}</h1>
         </div>
         <div class="col-xl-3 col-lg-6 col-md-6">
             <div class="ms-card ms-widget has-graph-full-width ms-infographics-widget">
@@ -906,7 +907,7 @@
     </div>
 @endsection
 
-@section('page_scripts')
+@section('page-scripts')
     <script src="{{url('/')}}/assets/js/Chart.bundle.min.js"></script>
     <script src="{{url('/')}}/assets/js/widgets.js"></script>
     <script src="{{url('/')}}/assets/js/clients.js"></script>

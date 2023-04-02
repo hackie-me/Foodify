@@ -7,15 +7,7 @@
 @section('main_content')
     <div class="row">
         <div class="col-12">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb pl-0">
-                    <li class="breadcrumb-item"><a href="#"><i class="material-icons">home</i> Home</a>
-                    </li>
-                    <li class="breadcrumb-item"><a href="#">Customer</a>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page">Social Activity</li>
-                </ol>
-            </nav>
+            <x-bread-crump url="social" title="social"/>
         </div>
         <!-- Overview -->
         <div class="col-md-12">
@@ -607,6 +599,6 @@
     </div>
 @endsection
 
-@section('page_scripts')
+@section('page-scripts')
 
 @endsection

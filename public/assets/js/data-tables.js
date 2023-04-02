@@ -32,7 +32,7 @@
     });
 
     var tableOne = $('#data-table-6').DataTable({
-        data: dataSet6, columns: [{title: "product ID"}, {title: "product Name"},
+        data: dataSet, columns: [{title: "product ID"}, {title: "product Name"},
 
             {title: "Quantity"}, {title: "Status"}, {title: "Price"}],
     });

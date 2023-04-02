@@ -4,6 +4,7 @@
 <script src="{{url('/')}}/assets/js/bootstrap.min.js"></script>
 <script src="{{url('/')}}/assets/js/perfect-scrollbar.js"></script>
 <script src="{{url('/')}}/assets/js/jquery-ui.min.js"></script>
+<script src="{{url('/')}}/assets/js/toast.js"></script>
 <!-- Data Tables -->
 <script src="{{url('/')}}/assets/js/datatables.min.js"></script>
 <script src="{{url('/')}}/assets/js/data-tables.js"></script>

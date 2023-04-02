@@ -5,7 +5,7 @@
         <span class="ms-toggler-bar bg-primary"></span>
     </div>
     <div class="logo-sn logo-sm ms-d-block-sm">
-        <a class="pl-0 ml-0 text-center navbar-brand mr-0" href="index.html"><img src="{{url('/')}}/assets/img/foodify/logo.svg" alt="logo"> </a>
+        <a class="pl-0 ml-0 text-center navbar-brand mr-0" href="{{url('/')}}"><img src="{{url('/')}}/assets/img/foodify/logo.svg" alt="logo"> </a>
     </div>
     <ul class="ms-nav-list ms-inline mb-0" id="ms-nav-options">
         <li class="ms-nav-item ms-search-form pb-0 py-0">
@@ -92,7 +92,9 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-right user-dropdown" aria-labelledby="userDropdown">
                 <li class="dropdown-menu-header">
-                    <h6 class="dropdown-header ms-inline m-0"><span class="text-disabled">Welcome, Anny Farisha</span></h6>
+                    <h6 class="dropdown-header ms-inline m-0"><span class="text-disabled">Welcome,
+                        {{Auth::user()->first_name . ' ' . Auth::user()->last_name}}
+                        </span></h6>
                 </li>
                 <li class="dropdown-divider"></li>
                 <li class="ms-dropdown-list">
@@ -105,11 +107,11 @@
                 </li>
                 <li class="dropdown-divider"></li>
                 <li class="dropdown-menu-footer">
-                    <a class="media fs-14 p-2" href="pages/prebuilt-pages/lock-screen.html"> <span><i class="flaticon-security mr-2"></i> Lock</span>
+                    <a class="media fs-14 p-2" href="{{url('/')}}/auth/lockscreen"> <span><i class="flaticon-security mr-2"></i> Lock</span>
                     </a>
                 </li>
                 <li class="dropdown-menu-footer">
-                    <a class="media fs-14 p-2" href="pages/prebuilt-pages/default-login.html"> <span><i class="flaticon-shut-down mr-2"></i> Logout</span>
+                    <a class="media fs-14 p-2" href="{{url('/')}}/auth/logout"> <span><i class="flaticon-shut-down mr-2"></i> Logout</span>
                     </a>
                 </li>
             </ul>

@@ -145,7 +145,7 @@
     </div>
 @endsection
 
-@section('page-script')
+@section('page-scripts')
     <script src="{{url('/')}}/assets/js/slick.min.js"></script>
     <script src="{{url('/')}}/assets/js/moment.js"></script>
     <script src="{{url('/')}}/assets/js/jquery.webticker.min.js"></script>
