@@ -13,7 +13,8 @@
                         <input type="text" placeholder="Subject" class="form-control" name="news-letter" value="">
                     </div>
                     <div class="ms-form-group">
-                        <textarea id="editor" name="editor"></textarea>
+                        <label for="editor">Body</label>
+                        <textarea id="editor" name="editor" rows="15"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary shadow-none">Get Started</button>
                 </form>

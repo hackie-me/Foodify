@@ -156,16 +156,13 @@
 
     {{-- Including Compose Email Modal --}}
     @include('includes.modal.modal_compose_email')
-
 @endsection
-
 @section('page-scripts')
     <script>
         ClassicEditor
-            .create( document.querySelector( '#editor' ) )
-            .catch( error => {
-                console.error( error );
-            } );
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
     </script>
-
 @endsection
