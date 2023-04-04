@@ -16,7 +16,10 @@
                         <label for="editor">Body</label>
                         <textarea id="editor" name="editor" rows="15"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary shadow-none">Get Started</button>
+                    <button type="submit" class="btn btn-primary shadow-none">Send Email</button>
+                    <button type="button" class="btn btn-secondary shadow-none" data-dismiss="modal" aria-label="Close">
+                        Cancel
+                    </button>
                 </form>
             </div>
 
