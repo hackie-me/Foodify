@@ -20,13 +20,19 @@ class Email extends Controller
         $countArchived = 0;
         $countContacts = 0;
 
-        $countInbox = Emails::where('user_id', auth()->user()->id)->all()->count();
+        $countInbox = Emails::where('user_id', auth()->user()->id)->get()->count();
         $countSent = Emails::where('user_id', auth()->user()->id)->where('is_sent', true)->count();
-        $countTrash = Emails::where('user_id', auth()->user()->id)->where('is_trash', true)->count();
+        $countTrash = Emails::where('user_id', auth()->user()->id)->onlyTrashed()->count();
         $countFlagged = Emails::where('user_id', auth()->user()->id)->where('is_flagged', true)->count();
         $countArchived = Emails::where('user_id', auth()->user()->id)->where('is_archived', true)->count();
-        $countContacts = Contacts::where('user_id', auth()->user()->id)->count();
+        $countContacts = Contacts::where('user_id', auth()->user()->id)->get()->count();
 
+        // Getting All Emails
+        $emails = Emails::where('user_id', auth()->user()->id)->get();
+        $emailsSent = Emails::where('user_id', auth()->user()->id)->where('is_sent', true)->get();
+        $emailsTrash = Emails::where('user_id', auth()->user()->id)->onlyTrashed()->get();
+        $emailsFlagged = Emails::where('user_id', auth()->user()->id)->where('is_flagged', true)->get();
+        $emailsArchived = Emails::where('user_id', auth()->user()->id)->where('is_archived', true)->get();
 
         $contacts = Contacts::where('user_id', auth()->user()->id)->get();
         $contactList = array();
@@ -46,7 +52,7 @@ class Email extends Controller
             ];
             $contactList[] = $temp;
         }
-        $data = compact('contactList');
+        $data = compact('countInbox', 'countSent', 'countTrash', 'countFlagged', 'countArchived', 'countContacts', 'contactList', 'contactList', 'emails', 'emailsSent', 'emailsTrash', 'emailsFlagged', 'emailsArchived');
         return view('app.email')->with($data);
     }
 

@@ -20,34 +20,34 @@
                     <li role="presentation" class="ms-list-item ms-email-label">Main</li>
                     <li role="presentation" class="ms-list-item ms-active-email">
                         <a href="#tab-inbox" aria-controls="tab-inbox" class="active show" role="tab" data-toggle="tab">
-                            <i class="material-icons ms-has-notification">mail</i> Inbox <span>32</span>
+                            <i class="material-icons ms-has-notification">mail</i> Inbox <span>{{$countFlagged}}</span>
                         </a>
                     </li>
                     <li role="presentation" class="ms-list-item">
                         <a href="#tab-flagged" aria-controls="tab-flagged" role="tab" data-toggle="tab"> <i
-                                class="material-icons">flag</i> Flagged <span>12</span>
+                                class="material-icons">flag</i> Flagged <span>{{$countFlagged}}</span>
                         </a>
                     </li>
                     <li role="presentation" class="ms-list-item">
                         <a href="#tab-archived" aria-controls="tab-archived" role="tab" data-toggle="tab"> <i
-                                class="material-icons">move_to_inbox</i> Archived <span>12</span>
+                                class="material-icons">move_to_inbox</i> Archived <span>{{$countArchived}}</span>
                         </a>
                     </li>
                     <li role="presentation" class="ms-list-item">
                         <a href="#tab-sent" aria-controls="tab-sent" role="tab" data-toggle="tab"> <i
-                                class="material-icons">send</i> Sent <span>51</span>
+                                class="material-icons">send</i> Sent <span>{{$countSent}}</span>
                         </a>
                     </li>
                     <li role="presentation" class="ms-list-item">
                         <a href="#tab-trash" aria-controls="tab-trash" role="tab" data-toggle="tab"> <i
-                                class="material-icons">delete</i> Trash <span>33</span>
+                                class="material-icons">delete</i> Trash <span>{{$countTrash}}</span>
                         </a>
                     </li>
                     <hr>
                     <li role="presentation" class="ms-list-item ms-email-label">Others</li>
                     <li role="presentation" class="ms-list-item">
                         <a href="#tab-contacts" aria-controls="tab-contacts" role="tab" data-toggle="tab"> <i
-                                class="material-icons">contacts</i> Contacts <span>233</span>
+                                class="material-icons">contacts</i> Contacts <span>{{$countContacts}}</span>
                         </a>
                     </li>
                 </ul>
@@ -58,7 +58,7 @@
                 <div role="tabpanel" class="tab-pane fade in active show" id="tab-inbox">
                     <div class="ms-panel-header">
                         <h6>Inbox</h6>
-                        <p>You have 17 Unread Messages</p>
+                        <p>You have {{$countInbox}} Unread Messages</p>
                         <ul class="ms-email-pagination">
                             <li>50-100 of 985</li>
                             <li class="ms-email-pagination-item">
@@ -114,8 +114,10 @@
                     <!-- Email Content -->
                     <div class="ms-email-content">
                         <ul class="ms-scrollable">
-                            <x-email-list sender="hardik@mail.com" subject="My subject" message="something"
-                                          time="My time"/>
+                            @foreach($emails as $email)
+                                <x-email-list sender="hardik@mail.com" subject="{{$email['subject']}}" message="{{$email['body']}}"
+                                              time="{{$email['created_at']}}"/>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -123,7 +125,7 @@
                 <div role="tabpanel" class="tab-pane fade" id="tab-flagged">
                     <div class="ms-panel-header">
                         <h6>Flagged</h6>
-                        <p>You have 17 Unread Messages</p>
+                        <p>You have {{$countFlagged}} Unread Messages</p>
                         <ul class="ms-email-pagination">
                             <li>50-100 of 985</li>
                             <li class="ms-email-pagination-item">
@@ -179,8 +181,10 @@
                     <!-- Email Content -->
                     <div class="ms-email-content">
                         <ul class="ms-scrollable">
-                            <x-email-list sender="hardik@mail.com" subject="My subject" message="something"
-                                          time="My time"/>
+                            @foreach($emailsFlagged as $email)
+                                <x-email-list sender="hardik@mail.com" subject="{{$email['subject']}}" message="{{$email['body']}}"
+                                              time="{{$email['created_at']}}"/>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -188,7 +192,7 @@
                 <div role="tabpanel" class="tab-pane fade" id="tab-archived">
                     <div class="ms-panel-header">
                         <h6>Archived</h6>
-                        <p>You have 17 Unread Messages</p>
+                        <p>You have {{$countArchived}} Unread Messages</p>
                         <ul class="ms-email-pagination">
                             <li>50-100 of 985</li>
                             <li class="ms-email-pagination-item">
@@ -244,8 +248,10 @@
                     <!-- Email Content -->
                     <div class="ms-email-content">
                         <ul class="ms-scrollable">
-                            <x-email-list sender="hardik@mail.com" subject="My subject" message="something"
-                                          time="My time"/>
+                            @foreach($emailsArchived as $email)
+                                <x-email-list sender="hardik@mail.com" subject="{{$email['subject']}}" message="{{$email['body']}}"
+                                              time="{{$email['created_at']}}"/>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -253,7 +259,7 @@
                 <div role="tabpanel" class="tab-pane fade" id="tab-sent">
                     <div class="ms-panel-header">
                         <h6>Sent</h6>
-                        <p>You have 17 Unread Messages</p>
+                        <p>You have {{$countSent}} Unread Messages</p>
                         <ul class="ms-email-pagination">
                             <li>50-100 of 985</li>
                             <li class="ms-email-pagination-item">
@@ -309,8 +315,10 @@
                     <!-- Email Content -->
                     <div class="ms-email-content">
                         <ul class="ms-scrollable">
-                            <x-email-list sender="hardik@mail.com" subject="My subject" message="something"
-                                          time="My time"/>
+                            @foreach($emailsSent as $email)
+                                <x-email-list sender="hardik@mail.com" subject="{{$email['subject']}}" message="{{$email['body']}}"
+                                              time="{{$email['created_at']}}"/>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -318,7 +326,7 @@
                 <div role="tabpanel" class="tab-pane fade" id="tab-trash">
                     <div class="ms-panel-header">
                         <h6>Trash</h6>
-                        <p>You have 17 Unread Messages</p>
+                        <p>You have {{$countTrash}} Unread Messages</p>
                         <ul class="ms-email-pagination">
                             <li>50-100 of 985</li>
                             <li class="ms-email-pagination-item">
@@ -374,8 +382,10 @@
                     <!-- Email Content -->
                     <div class="ms-email-content">
                         <ul class="ms-scrollable">
-                            <x-email-list sender="hardik@mail.com" subject="My subject" message="something"
-                                          time="My time"/>
+                            @foreach($emailsTrash as $email)
+                                <x-email-list sender="hardik@mail.com" subject="{{$email['subject']}}" message="{{$email['body']}}"
+                                              time="{{$email['created_at']}}"/>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
