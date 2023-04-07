@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\app\Chat;
+use App\Http\Controllers\app\Email;
 use App\Http\Controllers\app\Todo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +36,8 @@ Route::prefix('app')->group(function () {
     Route::prefix('email')->group(function () {
         Route::post('/add', [Email::class, 'addEmail']);
         Route::post('/delete', [Email::class, 'deleteEmail']);
+        Route::get('/get/contacts', [Email::class, 'getContacts'])->name('email.contacts');
+        Route::post('/add/contacts', [Email::class, 'addContact'])->name('email.add.contact');
     });
 
 

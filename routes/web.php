@@ -60,7 +60,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/faq', [FAQ::class, 'index']);
 
     Route::prefix('app')->group(function () {
-        Route::get('/email', [Email::class, 'index']);
+        Route::prefix('email')->group(function () {
+            Route::get('/', [Email::class, 'index']);
+            Route::get('/delete/{contactid}', [Email::class, 'deleteContact'])->name('delete-contact');
+        });
         Route::get('/chat', [Chat::class, 'index']);
         Route::prefix('todo')->group(function () {
             Route::get('/', [Todo::class, 'index']);
@@ -96,30 +99,7 @@ Route::prefix('auth')->group(function () {
 // Prefix test routes
 Route::prefix('test')->group(function () {
     Route::get('/', function () {
-
-
-        $curl = curl_init();
-
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://send.api.mailtrap.io/api/send',
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS => '{"from":{"email":"mailtrap@hardik.works","name":"Mailtrap Test"},"to":[{"email":"hardikkanajariya@yahoo.com"}],"subject":"You are awesome!","text":"Congrats for sending test email with Mailtrap!","category":"Integration Test"}',
-            CURLOPT_HTTPHEADER => array(
-                'Authorization: Bearer c29fd5af9909d959744f1201e0e29de7',
-                'Content-Type: application/json'
-            ),
-        ));
-
-        $response = curl_exec($curl);
-
-        curl_close($curl);
-        echo $response;
+        die('Test route');
     });
     Route::get('/email', function () {
         Mail::to('cofil41630@fectode.com')->send(new ComposeMail('Test Subject', 'Test Body', ''));
