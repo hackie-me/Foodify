@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('todo_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('block_id')->constrained()->onDelete('cascade');
+            $table->foreignId('todo_blocks_id')->constrained()->onDelete('cascade');
             $table->string('name');
             $table->boolean('is_completed')->default(false);
             $table->timestamps();

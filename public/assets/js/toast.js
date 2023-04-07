@@ -1,6 +1,5 @@
 (function ($) {
     'use strict';
-
     toastr.options =
         {
             "closeButton": false,

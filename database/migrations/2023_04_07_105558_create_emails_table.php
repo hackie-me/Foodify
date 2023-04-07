@@ -16,14 +16,14 @@ return new class extends Migration
         Schema::create('emails', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('contact_id')->constrained()->onDelete('cascade');
-            $table->string('subject');
+            $table->foreignId('contacts_id')->nullable()->constrained()->onDelete('cascade');
+            $table->string('subject', 255);
             $table->text('body');
-            $table->dateTime('datetime_sent');
-            $table->dateTime('datetime_received')->nullable();
-            $table->string('attachment_path')->nullable();
+            $table->string('attachment_path', 255)->nullable();
             $table->boolean('is_flagged')->default(false);
-            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->boolean('is_sent')->default(true);
+            $table->boolean('is_archived')->default(false);
+            $table->softDeletes();
             $table->timestamps();
         });
 

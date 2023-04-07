@@ -7,6 +7,7 @@
 <!-- jQuery UI -->
 <link href="{{url('/')}}/assets/css/jquery-ui.min.css" rel="stylesheet">
 <!-- Page Specific CSS (Slick Slider.css) -->
+<link href="{{url('/')}}/assets/css/toastr.min.css" rel="stylesheet">
 <link href="{{url('/')}}/assets/css/slick.css" rel="stylesheet">
 <link href="{{url('/')}}/assets/css/datatables.min.css" rel="stylesheet">
 <!-- foodify styles -->
