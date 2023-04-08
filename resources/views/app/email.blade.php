@@ -1,3 +1,4 @@
+@php use PhpImap\Mailbox; @endphp
 @extends('main')
 
 @push('title')
@@ -107,16 +108,17 @@
                         </ul>
                         <ul class="ms-email-options">
                             <li>
-                                <a href="#" class="text-disabled"> <i class="material-icons">refresh</i> Refresh</a>
+                                <a href="{{url('/')}}/app/email" class="text-disabled"> <i class="material-icons">refresh</i> Refresh</a>
                             </li>
                         </ul>
                     </div>
                     <!-- Email Content -->
                     <div class="ms-email-content">
                         <ul class="ms-scrollable">
-                            @foreach($emails as $email)
-                                <x-email-list sender="hardik@mail.com" subject="{{$email['subject']}}" message="{{$email['body']}}"
-                                              time="{{$email['created_at']}}"/>
+                            @foreach($INBOXemails as $email)
+                                <x-email-list sender="{{$email['sender_name']}}" subject="{{$email['subject']}}"
+                                              message="{{$email['body_html']}}"
+                                              time="{{$email['received_date']}}"/>
                             @endforeach
                         </ul>
                     </div>
@@ -182,7 +184,8 @@
                     <div class="ms-email-content">
                         <ul class="ms-scrollable">
                             @foreach($emailsFlagged as $email)
-                                <x-email-list sender="hardik@mail.com" subject="{{$email['subject']}}" message="{{$email['body']}}"
+                                <x-email-list sender="hardik@mail.com" subject="{{$email['subject']}}"
+                                              message="{{$email['body']}}"
                                               time="{{$email['created_at']}}"/>
                             @endforeach
                         </ul>
@@ -249,7 +252,8 @@
                     <div class="ms-email-content">
                         <ul class="ms-scrollable">
                             @foreach($emailsArchived as $email)
-                                <x-email-list sender="hardik@mail.com" subject="{{$email['subject']}}" message="{{$email['body']}}"
+                                <x-email-list sender="hardik@mail.com" subject="{{$email['subject']}}"
+                                              message="{{$email['body']}}"
                                               time="{{$email['created_at']}}"/>
                             @endforeach
                         </ul>
@@ -316,7 +320,8 @@
                     <div class="ms-email-content">
                         <ul class="ms-scrollable">
                             @foreach($emailsSent as $email)
-                                <x-email-list sender="hardik@mail.com" subject="{{$email['subject']}}" message="{{$email['body']}}"
+                                <x-email-list sender="hardik@mail.com" subject="{{$email['subject']}}"
+                                              message="{{$email['body']}}"
                                               time="{{$email['created_at']}}"/>
                             @endforeach
                         </ul>
@@ -383,7 +388,8 @@
                     <div class="ms-email-content">
                         <ul class="ms-scrollable">
                             @foreach($emailsTrash as $email)
-                                <x-email-list sender="hardik@mail.com" subject="{{$email['subject']}}" message="{{$email['body']}}"
+                                <x-email-list sender="hardik@mail.com" subject="{{$email['subject']}}"
+                                              message="{{$email['body']}}"
                                               time="{{$email['created_at']}}"/>
                             @endforeach
                         </ul>
@@ -427,7 +433,9 @@
                                                 <a href="#" class="text-secondary">
                                                     <i class="material-icons">edit</i>
                                                 </a>
-                                                <a href="{{route('delete-contact', $contact['id'])}}" onclick="confirm('Are you sure you want to delete this contact?')" class="color-red">
+                                                <a href="{{route('delete-contact', $contact['id'])}}"
+                                                   onclick="confirm('Are you sure you want to delete this contact?')"
+                                                   class="color-red">
                                                     <i class="material-icons">delete</i>
                                                 </a>
                                             </td>
