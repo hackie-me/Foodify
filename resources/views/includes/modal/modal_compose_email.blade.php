@@ -5,9 +5,10 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
                 <p>Compose: </p>
-                <form autocomplete="off" method="post" action="{{url('/')}}/app/mail/send" enctype="multipart/form-data">
+                <form autocomplete="off" method="post" action="{{route('send-email')}}" enctype="multipart/form-data">
+                    @csrf
                     <div class="ms-form-group">
-                        <input type="text" placeholder="To" class="form-control" name="news-letter" value="" list="emailList">
+                        <input type="text" placeholder="To" class="form-control" name="to" value="" list="emailList">
                         <datalist id="emailList">
                             @foreach($contactList as $contact)
                                 <option value="{{$contact['email']}}">{{$contact['email']}}</option>
@@ -15,11 +16,11 @@
                         </datalist>
                     </div>
                     <div class="ms-form-group">
-                        <input type="text" placeholder="Subject" class="form-control" name="news-letter" value="">
+                        <input type="text" placeholder="Subject" class="form-control" name="subject" value="">
                     </div>
                     <div class="ms-form-group">
                         <label for="editor">Body</label>
-                        <textarea id="editor" name="editor" rows="15"></textarea>
+                        <textarea id="editor" name="body" rows="15"></textarea>
                     </div>
                     <div class="ms-form-group">
                         <label for="editor">Attachments: </label>

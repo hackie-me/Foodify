@@ -31,7 +31,7 @@
                     <div class="media-body"><span>Archive</span>
                     </div>
                 </a>
-                <a class="media p-2" href="#">
+                <a class="media p-2" href="{{url('/')}}/app/email/delete/{{$flag ? "inbox" : "smtp"}}/{{$id}}">
                     <div class="media-body"><span>Delete</span>
                     </div>
                 </a>

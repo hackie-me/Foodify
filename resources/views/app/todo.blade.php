@@ -64,7 +64,7 @@
                     <div class="ms-card-body">
                         <ul class="ms-list ms-task-block">
                             @foreach($block->todoItems as $task)
-                                @if($task->block_id == $block->id)
+                                @if($task->todo_blocks_id == $block->id)
                                     <li class="ms-list-item ms-qa-task ms-to-do-task ms-deletable {{  $task->is_completed == "1" ? "task-complete" : "" }} ">
                                         <label class="ms-checkbox-wrap ms-todo-complete">
                                             <input type="checkbox"

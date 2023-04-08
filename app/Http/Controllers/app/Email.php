@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\app;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ComposeMail;
 use App\Models\Contacts;
 use App\Models\Emails;
 use Illuminate\Http\Request;
+use Mail;
+use PhpImap\Exceptions\InvalidParameterException;
 use PhpImap\Mailbox;
 
 class Email extends Controller
@@ -13,27 +16,35 @@ class Email extends Controller
     // Function to show Email Page
     public function index()
     {
-        // Count
-        $countInbox = 0;
-        $countSent = 0;
-        $countTrash = 0;
-        $countFlagged = 0;
-        $countArchived = 0;
-        $countContacts = 0;
+        $mailbox = $this->getMailbox();
+        // Get a list of all folders on the server
+        $mailboxes = $mailbox->getMailboxes('*');
 
-        $countInbox = Emails::where('user_id', auth()->user()->id)->get()->count();
-        $countSent = Emails::where('user_id', auth()->user()->id)->where('is_sent', true)->count();
-        $countTrash = Emails::where('user_id', auth()->user()->id)->onlyTrashed()->count();
-        $countFlagged = Emails::where('user_id', auth()->user()->id)->where('is_flagged', true)->count();
-        $countArchived = Emails::where('user_id', auth()->user()->id)->where('is_archived', true)->count();
-        $countContacts = Contacts::where('user_id', auth()->user()->id)->get()->count();
+        $folders = [];
+        $messages = [];
+        // Loop through all the mailboxes and get the message count
+        foreach ($mailboxes as $folder) {
+            $folderName = $folder['shortpath'];
+            $mailbox = $this->getMailbox($folderName);
+            $count = $mailbox->countMails();
+            $mailIds = $mailbox->searchMailbox('ALL');
+            $messagesInFolder = [];
+            foreach ($mailIds as $mailId) {
+                $message = $mailbox->getMail($mailId);
+                $messagesInFolder[] = $message;
+            }
+            $messages[$folderName] = $messagesInFolder;
+            $folders[$folderName] = $count;
+        }
+        echo "<pre>";
+        print_r($folders);
+        echo "</pre><hr>";
+        echo "<pre>";
+        print_r($messages);
 
-        // Getting All Emails
-        $emails = Emails::where('user_id', auth()->user()->id)->get();
-        $emailsSent = Emails::where('user_id', auth()->user()->id)->where('is_sent', true)->get();
-        $emailsTrash = Emails::where('user_id', auth()->user()->id)->onlyTrashed()->get();
-        $emailsFlagged = Emails::where('user_id', auth()->user()->id)->where('is_flagged', true)->get();
-        $emailsArchived = Emails::where('user_id', auth()->user()->id)->where('is_archived', true)->get();
+        // Disconnect from the server
+        $mailbox->disconnect();
+        die();
 
         $contacts = Contacts::where('user_id', auth()->user()->id)->get();
         $contactList = array();
@@ -55,19 +66,12 @@ class Email extends Controller
         }
 
         // Imap Email
-        $host = env('IMAP_HOST');
-        $port = env('IMAP_PORT');
-        $encryption = env('IMAP_ENCRYPTION');
-        $username = env('IMAP_USERNAME');
-        $password = env('IMAP_PASSWORD');
-        $mailbox = new Mailbox('{'.$host.':'.$port.'/imap/'.$encryption.'}INBOX', $username, $password);
         $emailsIds = $mailbox->searchMailbox('ALL');
         // Loop through the email ids and fetch the email messages
         $INBOXemails = array();
         foreach ($emailsIds as $emailId) {
             // Fetch the email message
             $email = $mailbox->getMail($emailId);
-
             // Extract the information you want from the email message
             $senderName = $email->fromName;
             $senderAddress = $email->fromAddress;
@@ -78,6 +82,7 @@ class Email extends Controller
 
             // Store the information in an array
             $INBOXemails[] = array(
+                'id' => $emailId,
                 'sender_name' => $senderName,
                 'sender_address' => $senderAddress,
                 'subject' => $subject,
@@ -90,6 +95,54 @@ class Email extends Controller
         $data = compact('countInbox', 'countSent', 'countTrash', 'countFlagged', 'countArchived', 'countContacts', 'contactList', 'contactList', 'emails', 'emailsSent', 'emailsTrash', 'emailsFlagged', 'emailsArchived', 'INBOXemails');
         return view('app.email')->with($data);
     }
+
+    // Function to send Email
+
+    /**
+     * @return Mailbox
+     * @throws InvalidParameterException
+     */
+    private function getMailbox($folder = 'INBOX'): Mailbox
+    {
+        $host = env('IMAP_HOST');
+        $port = env('IMAP_PORT');
+        $encryption = env('IMAP_ENCRYPTION');
+        $username = env('IMAP_USERNAME');
+        $password = env('IMAP_PASSWORD');
+        $mailbox = new Mailbox('{' . $host . ':' . $port . '/imap/' . $encryption . '}' . $folder, $username, $password);
+        return $mailbox;
+    }
+
+    public function sendEmail(Request $request)
+    {
+        $request->validate([
+            'to' => 'required',
+            'subject' => 'required',
+            'body' => 'required'
+        ]);
+
+        // send Email
+        $subject = $request->subject;
+        $body = $request->body;
+        if (Mail::to($request->to)->send(new ComposeMail($subject, $body, ''))) {
+            // Add record to database
+            $mail = new Emails();
+            $mail->user_id = auth()->user()->id;
+            $mail->to = $request->to;
+            $mail->subject = $request->subject;
+            $mail->body = $request->body;
+            $mail->is_sent = true;
+            if ($mail->save()) {
+                return redirect()->back()->with('success', 'Email sent successfully');
+            } else {
+                return redirect()->back()->with('error', 'Email not sent');
+            }
+        } else {
+            return redirect()->back()->with('error', 'Email not sent');
+        }
+    }
+
+    // Function to delete Email from Inbox
 
     public function addContact(Request $request)
     {
@@ -108,7 +161,6 @@ class Email extends Controller
             'phone' => 'string|nullable',
             'mobile' => 'string|nullable',
             'address' => 'string|nullable',
-
         ]);
         // create new contact
         $contact = new Contacts();
@@ -130,12 +182,34 @@ class Email extends Controller
         return redirect()->back()->with('success', 'Contact Added Successfully');
     }
 
-    public function deleteContact(int $contactid)
+    /**
+     * @throws InvalidParameterException
+     */
+    public function deleteInboxEmail($id)
     {
-        $contact = Contacts::find($contactid);
+        // Create a new IMAP mailbox instance and connect to the server
+        $mailbox = $this->getMailbox();
+
+        // Delete the email with the specified ID
+        $mailbox->deleteMail($id);
+        return redirect()->back()->with('success', 'Email Deleted Successfully');
+    }
+
+    public function deleteSmtpEmail($id)
+    {
+        $email = Emails::find($id);
+
+        // soft delete
+        $email->delete();
+        return redirect()->back()->with('success', 'Moved to Trash Successfully');
+    }
+
+    public function deleteContact(int $contactId)
+    {
+        $contact = Contacts::find($contactId);
         if ($contact->user_id != auth()->user()->id)
             return redirect()->back()->with('error', 'You are not authorized to delete this contact');
-        if($contact->delete())
+        if ($contact->delete())
             return redirect()->back()->with('success', 'Contact Deleted Successfully');
         return redirect()->back()->with('error', 'Something went wrong');
     }

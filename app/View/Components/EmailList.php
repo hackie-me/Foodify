@@ -6,6 +6,7 @@ use Illuminate\View\Component;
 
 class EmailList extends Component
 {
+    public string $id;
     public bool $pinned;
     public bool $flag;
     public string $subject;
@@ -20,8 +21,9 @@ class EmailList extends Component
      *
      * @return void
      */
-    public function __construct($sender, $subject, $message, $time, $avatar = null, $hasAttachment = false, $pinned = false, $flag = false)
+    public function __construct($sender, $subject, $message, $time,$id = 0, $avatar = null, $hasAttachment = false, $pinned = false, $flag = false)
     {
+        $this->id = $id;
         $this->sender = $sender;
         $this->subject = $subject;
          $this->message = substr($message, 0, 50) . "...";

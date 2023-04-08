@@ -62,7 +62,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::prefix('app')->group(function () {
         Route::prefix('email')->group(function () {
             Route::get('/', [Email::class, 'index']);
-            Route::get('/delete/{contactid}', [Email::class, 'deleteContact'])->name('delete-contact');
+            Route::post('/send', [Email::class, 'sendEmail'])->name('send-email');
+            Route::get('/delete/{contactId}', [Email::class, 'deleteContact'])->name('delete-contact');
+            Route::get('/delete/inbox/{id}', [Email::class, 'deleteInboxEmail'])->name('delete-inbox-email');
+            Route::get('/delete/smtp/{id}', [Email::class, 'deleteSmtpEmail'])->name('delete-smtp-email');
         });
         Route::get('/chat', [Chat::class, 'index']);
         Route::prefix('todo')->group(function () {
@@ -100,19 +103,6 @@ Route::prefix('auth')->group(function () {
 Route::prefix('test')->group(function () {
     Route::get('/', function () {
         // die('Test route');
-//        $mailbox = new \PhpImap\Mailbox('{imap.gmail.com:993/imap/ssl}INBOX', 'hcollege0@gmail.com', 'iloveyouKajal');
-//        $mailbox->setAttachmentsIgnore(true); // Optional: ignore email attachments
-        $mailbox = new \PhpImap\Mailbox('{imap.mail.yahoo.com:993/imap/ssl}INBOX', 'hardikkanajariya@yahoo.com', 'rtmpissoomqoacdb');
-        $mailbox->setAttachmentsIgnore(true); // Optional: ignore email attachments
-
-        $emailsIds = $mailbox->searchMailbox('ALL');
-        foreach ($emailsIds as $emailId) {
-            $email = $mailbox->getMail($emailId);
-            // Process the email as needed
-            echo "<pre>";
-            print_r($email);
-            echo "</pre><hr>";
-        }
     });
     Route::get('/email', function () {
         Mail::to('cofil41630@fectode.com')->send(new ComposeMail('Test Subject', 'Test Body', ''));

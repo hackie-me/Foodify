@@ -427,6 +427,8 @@
                             // Remove element from UI
                             $deletable.slideUp('slow', function () {
                                 $(this).addClass('archived');
+                                // Reload the page
+                                location.reload();
                             });
                         }
                     }
@@ -482,6 +484,8 @@
                             '<div class="ms-card-footer clearfix"><a href="#" class="text-disabled mr-2"> <i class="flaticon-archive"> </i> Archive </a><a href="#" class="text-disabled ms-delete-trigger float-right">' +
                             '<i class="flaticon-trash"> </i> Delete </a> </div> </div> </div>'
                         );
+                        // Reload the page
+                        location.reload();
                     } else {
                         // if response code is not 201 then show error message
                         alert(data.message);

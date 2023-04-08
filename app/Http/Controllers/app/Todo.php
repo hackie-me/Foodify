@@ -20,7 +20,7 @@ class Todo extends Controller
 
         // Get all Todo Items by block id
         foreach ($todoBlocks as $todoBlock) {
-            $todoBlock->todoItems = TodoItems::where('block_id', $todoBlock->id)->get();
+            $todoBlock->todoItems = TodoItems::where('todo_blocks_id', $todoBlock->id)->get();
         }
         // Return the view with data
         $data = compact('todoBlocks');
@@ -66,7 +66,7 @@ class Todo extends Controller
         // Create Todo Item
         $item = new TodoItems();
         $item->name = $request->name;
-        $item->block_id = $request->block_id;
+        $item->todo_blocks_id = $request->block_id;
         if ($item->save()) {
             // Return success response code 201 with message and recent added item
             return response()->json([
@@ -162,7 +162,7 @@ class Todo extends Controller
             // Delete Todo Block
             $block = TodoBlock::find($request['id']);
             // Delete all Todo Items by block id
-            TodoItems::where('block_id', $block->id)->delete();
+            TodoItems::where('todo_blocks_id', $block->id)->delete();
             if ($block->delete()) {
                 // Return success response code 201 with message
                 return response()->json([
@@ -203,8 +203,8 @@ class Todo extends Controller
         $todoBlocks = TodoBlock::where('user_id', $user->id)->get();
         foreach ($todoBlocks as $todoBlock) {
             // Delete all Todo Items by block id if all Todo Items are completed
-            if (TodoItems::where('block_id', $todoBlock->id)->where('is_completed', 0)->count() == 0){
-                TodoItems::where('block_id', $todoBlock->id)->delete();
+            if (TodoItems::where('todo_block_id', $todoBlock->id)->where('is_completed', 0)->count() == 0){
+                TodoItems::where('todo_block_id', $todoBlock->id)->delete();
                 $todoBlock->delete();
             }else{
                 continue;
@@ -222,7 +222,7 @@ class Todo extends Controller
         $todoBlocks = TodoBlock::where('user_id', $user->id)->get();
         foreach ($todoBlocks as $todoBlock) {
             // Delete all Todo Items by block id
-            TodoItems::where('block_id', $todoBlock->id)->delete();
+            TodoItems::where('todo_blocks_id', $todoBlock->id)->delete();
             $todoBlock->delete();
         }
 
