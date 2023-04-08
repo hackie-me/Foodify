@@ -99,7 +99,20 @@ Route::prefix('auth')->group(function () {
 // Prefix test routes
 Route::prefix('test')->group(function () {
     Route::get('/', function () {
-        die('Test route');
+        // die('Test route');
+//        $mailbox = new \PhpImap\Mailbox('{imap.gmail.com:993/imap/ssl}INBOX', 'hcollege0@gmail.com', 'iloveyouKajal');
+//        $mailbox->setAttachmentsIgnore(true); // Optional: ignore email attachments
+        $mailbox = new \PhpImap\Mailbox('{imap.mail.yahoo.com:993/imap/ssl}INBOX', 'hardikkanajariya@yahoo.com', 'rtmpissoomqoacdb');
+        $mailbox->setAttachmentsIgnore(true); // Optional: ignore email attachments
+
+        $emailsIds = $mailbox->searchMailbox('ALL');
+        foreach ($emailsIds as $emailId) {
+            $email = $mailbox->getMail($emailId);
+            // Process the email as needed
+            echo "<pre>";
+            print_r($email);
+            echo "</pre><hr>";
+        }
     });
     Route::get('/email', function () {
         Mail::to('cofil41630@fectode.com')->send(new ComposeMail('Test Subject', 'Test Body', ''));

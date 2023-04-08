@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Contacts;
 use App\Models\Emails;
 use Illuminate\Http\Request;
+use PhpImap\Mailbox;
 
 class Email extends Controller
 {
@@ -52,7 +53,41 @@ class Email extends Controller
             ];
             $contactList[] = $temp;
         }
-        $data = compact('countInbox', 'countSent', 'countTrash', 'countFlagged', 'countArchived', 'countContacts', 'contactList', 'contactList', 'emails', 'emailsSent', 'emailsTrash', 'emailsFlagged', 'emailsArchived');
+
+        // Imap Email
+        $host = env('IMAP_HOST');
+        $port = env('IMAP_PORT');
+        $encryption = env('IMAP_ENCRYPTION');
+        $username = env('IMAP_USERNAME');
+        $password = env('IMAP_PASSWORD');
+        $mailbox = new Mailbox('{'.$host.':'.$port.'/imap/'.$encryption.'}INBOX', $username, $password);
+        $emailsIds = $mailbox->searchMailbox('ALL');
+        // Loop through the email ids and fetch the email messages
+        $INBOXemails = array();
+        foreach ($emailsIds as $emailId) {
+            // Fetch the email message
+            $email = $mailbox->getMail($emailId);
+
+            // Extract the information you want from the email message
+            $senderName = $email->fromName;
+            $senderAddress = $email->fromAddress;
+            $subject = $email->subject;
+            $bodyHTML = $email->textHtml;
+            $hasAttachment = $email->hasAttachments();
+            $receivedDate = $email->date;
+
+            // Store the information in an array
+            $INBOXemails[] = array(
+                'sender_name' => $senderName,
+                'sender_address' => $senderAddress,
+                'subject' => $subject,
+                'body_html' => $bodyHTML,
+                'has_attachment' => $hasAttachment,
+                'received_date' => $receivedDate
+            );
+        }
+
+        $data = compact('countInbox', 'countSent', 'countTrash', 'countFlagged', 'countArchived', 'countContacts', 'contactList', 'contactList', 'emails', 'emailsSent', 'emailsTrash', 'emailsFlagged', 'emailsArchived', 'INBOXemails');
         return view('app.email')->with($data);
     }
 

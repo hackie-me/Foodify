@@ -11,7 +11,7 @@
         <h6 class="ms-email-subject">{{$subject}}</h6>  <span class="ms-email-time">
             {!! $hasAttachment ? "<a href='#'><i class='material-icons''>attachment</i></a>" : ""!!}
             <span id="timeElapsed">Calculation not working</span> </span>
-        <p class="ms-email-msg">{{$message}}</p>
+        <p class="ms-email-msg">{!! $message !!}</p>
     </div>
     <div class="dropdown">
         <a href="#" class="ms-hoverable-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i
