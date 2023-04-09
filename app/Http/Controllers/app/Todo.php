@@ -24,7 +24,7 @@ class Todo extends Controller
         }
         // Return the view with data
         $data = compact('todoBlocks');
-        return view('app.todo', $data);
+        return view('app.todo.index', $data);
     }
 
     // Function to add Todo Block

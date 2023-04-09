@@ -1,9 +1,4 @@
 <li class="media ms-email clearfix {{$flag ? "pinned" : ""}}">
-    <div class="ms-email-controls">
-        <label class="ms-checkbox-wrap">
-            <input type="checkbox" value=""> <i class="ms-checkbox-check"></i>
-        </label> <i class="material-icons ms-pin-email">flag</i>
-    </div>
     <div class="ms-email-img mr-3 ">
         <img src="{{$avatar}}" class="ms-img-round" alt="people">
     </div>
@@ -21,10 +16,6 @@
             <li class="ms-dropdown-list">
                 <a class="media p-2" href="#">
                     <div class="media-body"><span>Mark as read</span>
-                    </div>
-                </a>
-                <a class="media p-2 ms-pin-email" href="#">
-                    <div class="media-body"><span>Flag</span>
                     </div>
                 </a>
                 <a class="media p-2" href="#">

@@ -10,6 +10,6 @@ class Chat extends Controller
     // Function to show Chat Page
     public function index()
     {
-        return view('app.chat');
+        return view('app.chat.index');
     }
 }

@@ -13,67 +13,73 @@
     <div class="ms-panel ms-email-panel">
         <div class="ms-panel-body p-0">
             <div class="ms-email-aside">
-                <button data-toggle="modal" data-target="#modal-compose-email"
-                        class="btn btn-primary w-100 mt-0 has-icon"><i class="flaticon-pencil"></i> Compose
-                    Email
-                </button>
-                <ul class="ms-list nav d-block ms-email-list border-0" role="tablist" aria-orientation="vertical">
-                    <li role="presentation" class="ms-list-item ms-email-label">Main</li>
-                    <li role="presentation" class="ms-list-item ms-active-email">
-                        <a href="#tab-inbox" aria-controls="tab-inbox" class="active show" role="tab" data-toggle="tab">
-                            <i class="material-icons ms-has-notification">mail</i> Inbox <span>{{$countFlagged}}</span>
-                        </a>
-                    </li>
-                    <li role="presentation" class="ms-list-item">
-                        <a href="#tab-flagged" aria-controls="tab-flagged" role="tab" data-toggle="tab"> <i
-                                class="material-icons">flag</i> Flagged <span>{{$countFlagged}}</span>
-                        </a>
-                    </li>
-                    <li role="presentation" class="ms-list-item">
-                        <a href="#tab-archived" aria-controls="tab-archived" role="tab" data-toggle="tab"> <i
-                                class="material-icons">move_to_inbox</i> Archived <span>{{$countArchived}}</span>
-                        </a>
-                    </li>
-                    <li role="presentation" class="ms-list-item">
-                        <a href="#tab-sent" aria-controls="tab-sent" role="tab" data-toggle="tab"> <i
-                                class="material-icons">send</i> Sent <span>{{$countSent}}</span>
-                        </a>
-                    </li>
-                    <li role="presentation" class="ms-list-item">
-                        <a href="#tab-trash" aria-controls="tab-trash" role="tab" data-toggle="tab"> <i
-                                class="material-icons">delete</i> Trash <span>{{$countTrash}}</span>
-                        </a>
-                    </li>
-                    <hr>
-                    <li role="presentation" class="ms-list-item ms-email-label">Others</li>
-                    <li role="presentation" class="ms-list-item">
-                        <a href="#tab-contacts" aria-controls="tab-contacts" role="tab" data-toggle="tab"> <i
-                                class="material-icons">contacts</i> Contacts <span>{{$countContacts}}</span>
-                        </a>
-                    </li>
-                </ul>
+                @include('app.email.email-side-bar-menu')
             </div>
             <!-- Email Main -->
             <div class="tab-content ms-email-main">
                 {{-- Inbox Tab --}}
                 <div role="tabpanel" class="tab-pane fade in active show" id="tab-inbox">
-                    @include('app.email_tabs.inbox')
-                </div>
-                {{-- Flagged Tab--}}
-                <div role="tabpanel" class="tab-pane fade" id="tab-flagged">
-                    @include('app.email_tabs.flagged')
-                </div>
-                {{-- Archived Tab--}}
-                <div role="tabpanel" class="tab-pane fade" id="tab-archived">
-                    @include('app.email_tabs.archived')
-                </div>
-                {{-- Sent Tab --}}
-                <div role="tabpanel" class="tab-pane fade" id="tab-sent">
-                    @include('app.email_tabs.sent')
-                </div>
-                {{-- Trash Tab --}}
-                <div role="tabpanel" class="tab-pane fade" id="tab-trash">
-                    @include('app.email_tabs.trash')
+                    <div class="ms-panel-header">
+                        <h6>{{$folder_name}}</h6>
+                        <p>You have {{$folder_count}} Unread Messages</p>
+                        <ul class="ms-email-pagination">
+                            <li>50-100 of 985</li>
+                            <li class="ms-email-pagination-item">
+                                <a href="#" class="ms-email-pagination-link"> <i class="material-icons">keyboard_arrow_left</i>
+                                </a>
+                            </li>
+                            <li class="ms-email-pagination-item ">
+                                <a href="#" class="ms-email-pagination-link"> <i class="material-icons">keyboard_arrow_right</i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="ms-email-header">
+                        <ul class="ms-email-options">
+                            <li>
+                                <label class="ms-checkbox-wrap">
+                                    <input type="checkbox" class="ms-email-check-all" value=""> <i
+                                        class="ms-checkbox-check"></i>
+                                </label>
+                                <div class="dropdown"><a href="#" class="has-chevron" data-toggle="dropdown"
+                                                         aria-haspopup="true" aria-expanded="false">
+                                        Select
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="ms-dropdown-list">
+                                            <a class="media p-2" href="#">
+                                                <div class="media-body"><span>Mark as read</span>
+                                                </div>
+                                            </a>
+                                            <a class="media p-2" href="#">
+                                                <div class="media-body"><span>Flag</span>
+                                                </div>
+                                            </a>
+                                            <a class="media p-2" href="#">
+                                                <div class="media-body"><span>Delete</span>
+                                                </div>
+                                            </a>
+                                            <a class="media p-2" href="#">
+                                                <div class="media-body"><span>Archive</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="ms-email-options">
+                            <li>
+                                <a href="#" class="text-disabled"> <i class="material-icons">refresh</i> Refresh</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Email Content -->
+                    <div class="ms-email-content">
+                        @foreach($messages as $mail)
+                            <x-email-list subject="{{$mail['subject']}}" message="{{$mail['body_html']}}" sender="{{$mail['sender_name']}}" time="{{$mail['received_date']}}" hasAttachment="{{$mail['has_attachment']}}"></x-email-list>
+                        @endforeach
+                    </div>
                 </div>
                 {{-- Contacts Tab --}}
                 <div role="tabpanel" class="tab-pane fade" id="tab-contacts">
@@ -143,7 +149,6 @@
             .catch(error => {
                 console.error(error);
             });
-
         // Datatable for Contacts
         $('#data-table-contacts').DataTable();
     </script>

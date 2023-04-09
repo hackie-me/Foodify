@@ -62,10 +62,13 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::prefix('app')->group(function () {
         Route::prefix('email')->group(function () {
             Route::get('/', [Email::class, 'index']);
+            Route::get('/folder/{folder_name}', [Email::class, 'getFolderEmails'])->name('get-folder-emails');
+            Route::get('/email/{id}', [Email::class, 'getEmail'])->name('get-email');
+            Route::get('/email/mark-as-read/{id}', [Email::class, 'markAsRead'])->name('mark-as-read');
+            Route::get('/email/mark-as-archive/{id}', [Email::class, 'markAsArchive'])->name('mark-as-archive');
             Route::post('/send', [Email::class, 'sendEmail'])->name('send-email');
+            Route::get('/delete/{id}', [Email::class, 'deleteEmail'])->name('delete-email');
             Route::get('/delete/{contactId}', [Email::class, 'deleteContact'])->name('delete-contact');
-            Route::get('/delete/inbox/{id}', [Email::class, 'deleteInboxEmail'])->name('delete-inbox-email');
-            Route::get('/delete/smtp/{id}', [Email::class, 'deleteSmtpEmail'])->name('delete-smtp-email');
         });
         Route::get('/chat', [Chat::class, 'index']);
         Route::prefix('todo')->group(function () {

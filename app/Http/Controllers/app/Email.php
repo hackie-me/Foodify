@@ -16,36 +16,47 @@ class Email extends Controller
     // Function to show Email Page
     public function index()
     {
-        $mailbox = $this->getMailbox();
-        // Get a list of all folders on the server
-        $mailboxes = $mailbox->getMailboxes('*');
-
-        $folders = [];
+        $folder_name = 'INBOX';
         $messages = [];
-        // Loop through all the mailboxes and get the message count
-        foreach ($mailboxes as $folder) {
-            $folderName = $folder['shortpath'];
-            $mailbox = $this->getMailbox($folderName);
-            $count = $mailbox->countMails();
-            $mailIds = $mailbox->searchMailbox('ALL');
-            $messagesInFolder = [];
-            foreach ($mailIds as $mailId) {
-                $message = $mailbox->getMail($mailId);
-                $messagesInFolder[] = $message;
+        try {
+            $mailbox = $this->getMailbox('INBOX');
+            $folder_count = $mailbox->countMails();
+            $emailsIds = $mailbox->searchMailbox('ALL');
+            foreach ($emailsIds as $emailId) {
+                // Fetch the email message
+                $email = $mailbox->getMail($emailId);
+                // Extract the information you want from the email message
+                $senderName = $email->fromName;
+                $senderAddress = $email->fromAddress;
+                $subject = $email->subject;
+                $bodyHTML = $email->textHtml;
+                $hasAttachment = $email->hasAttachments();
+                $receivedDate = $email->date;
+
+                // Store the information in an array
+                $messages[] = array(
+                    'id' => $emailId,
+                    'sender_name' => $senderName,
+                    'sender_address' => $senderAddress,
+                    'subject' => $subject,
+                    'body_html' => $bodyHTML,
+                    'has_attachment' => $hasAttachment,
+                    'received_date' => $receivedDate
+                );
             }
-            $messages[$folderName] = $messagesInFolder;
-            $folders[$folderName] = $count;
+        } catch (InvalidParameterException $e) {
+            echo $e->getMessage();
         }
-        echo "<pre>";
-        print_r($folders);
-        echo "</pre><hr>";
-        echo "<pre>";
-        print_r($messages);
 
-        // Disconnect from the server
-        $mailbox->disconnect();
-        die();
+        // Getting Contact List
+        $contactList = $this->getContactList();
 
+        $data = compact('contactList', 'messages', 'folder_count', 'folder_name');
+        return view('app.email.inbox')->with($data);
+    }
+
+    // Function to get Contact List
+    private function getContactList(){
         $contacts = Contacts::where('user_id', auth()->user()->id)->get();
         $contactList = array();
         // make a json object for each contact
@@ -65,10 +76,15 @@ class Email extends Controller
             $contactList[] = $temp;
         }
 
-        // Imap Email
+        return $contactList;
+    }
+
+    // Get Email by Folder Name
+    public function getFolderEmails($folder_name){
+        $messages = [];
+        $mailbox = $this->getMailbox($folder_name);
+        $folder_count = $mailbox->countMails();
         $emailsIds = $mailbox->searchMailbox('ALL');
-        // Loop through the email ids and fetch the email messages
-        $INBOXemails = array();
         foreach ($emailsIds as $emailId) {
             // Fetch the email message
             $email = $mailbox->getMail($emailId);
@@ -81,7 +97,7 @@ class Email extends Controller
             $receivedDate = $email->date;
 
             // Store the information in an array
-            $INBOXemails[] = array(
+            $messages[] = array(
                 'id' => $emailId,
                 'sender_name' => $senderName,
                 'sender_address' => $senderAddress,
@@ -92,16 +108,15 @@ class Email extends Controller
             );
         }
 
-        $data = compact('countInbox', 'countSent', 'countTrash', 'countFlagged', 'countArchived', 'countContacts', 'contactList', 'contactList', 'emails', 'emailsSent', 'emailsTrash', 'emailsFlagged', 'emailsArchived', 'INBOXemails');
-        return view('app.email')->with($data);
+        // Getting Contact List
+        $contactList = $this->getContactList();
+
+        $data = compact('messages', 'folder_name', 'folder_count', 'contactList');
+        return view('app.email.folder')->with($data);
+
     }
 
     // Function to send Email
-
-    /**
-     * @return Mailbox
-     * @throws InvalidParameterException
-     */
     private function getMailbox($folder = 'INBOX'): Mailbox
     {
         $host = env('IMAP_HOST');
@@ -143,6 +158,11 @@ class Email extends Controller
     }
 
     // Function to delete Email from Inbox
+    public function deleteEmail($id){
+        $mailbox = $this->getMailbox();
+        $mailbox->deleteMail($id);
+        return redirect()->back()->with('success', 'Email deleted successfully');
+    }
 
     public function addContact(Request $request)
     {
@@ -180,28 +200,6 @@ class Email extends Controller
         $contact->address = $request->address;
         $contact->save();
         return redirect()->back()->with('success', 'Contact Added Successfully');
-    }
-
-    /**
-     * @throws InvalidParameterException
-     */
-    public function deleteInboxEmail($id)
-    {
-        // Create a new IMAP mailbox instance and connect to the server
-        $mailbox = $this->getMailbox();
-
-        // Delete the email with the specified ID
-        $mailbox->deleteMail($id);
-        return redirect()->back()->with('success', 'Email Deleted Successfully');
-    }
-
-    public function deleteSmtpEmail($id)
-    {
-        $email = Emails::find($id);
-
-        // soft delete
-        $email->delete();
-        return redirect()->back()->with('success', 'Moved to Trash Successfully');
     }
 
     public function deleteContact(int $contactId)

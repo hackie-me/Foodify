@@ -34,8 +34,6 @@ Route::prefix('app')->group(function () {
 
     // Routes for Email Application
     Route::prefix('email')->group(function () {
-        Route::post('/add', [Email::class, 'addEmail']);
-        Route::post('/delete', [Email::class, 'deleteEmail']);
         Route::get('/get/contacts', [Email::class, 'getContacts'])->name('email.contacts');
         Route::post('/add/contacts', [Email::class, 'addContact'])->name('email.add.contact');
     });
