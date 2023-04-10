@@ -31,7 +31,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+Route::middleware(['auth:sanctum', 'verified', 'quick.bar.data'])->group(function () {
     Route::get('/', function () {
         return view('pages.dashboard');
     });

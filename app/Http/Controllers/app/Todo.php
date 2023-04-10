@@ -14,7 +14,7 @@ class Todo extends Controller
     public function index()
     {
         $this->user = auth()->user();
-//        print_r($this->user);
+        // print_r($this->user);
         // Get all Todo Blocks by user id
         $todoBlocks = TodoBlock::where('user_id', $this->user->id)->get();
 

@@ -1,14 +1,6 @@
 <!-- Quick bar -->
 <aside id="ms-quick-bar" class="ms-quick-bar fixed ms-d-block-lg">
-
     <ul class="nav nav-tabs ms-quick-bar-list" role="tablist">
-
-        <li class="ms-quick-bar-item ms-has-qa" role="presentation" data-toggle="tooltip" data-placement="left" title="Launch To-do-list" data-title="To-do-list">
-            <a href="#qa-toDo" aria-controls="qa-toDo" role="tab" data-toggle="tab">
-                <i class="flaticon-list"></i>
-
-            </a>
-        </li>
         <li class="ms-quick-bar-item ms-has-qa" role="presentation" data-toggle="tooltip" data-placement="left" title="Launch Reminders" data-title="Reminders">
             <a href="#qa-reminder" aria-controls="qa-reminder" role="tab" data-toggle="tab">
                 <i class="flaticon-bell"></i>
@@ -45,66 +37,12 @@
 
     <!-- Quick bar Content -->
     <div class="ms-quick-bar-content">
-
         <div class="ms-quick-bar-header clearfix">
             <h5 class="ms-quick-bar-title float-left">Title</h5>
             <button type="button" class="close ms-toggler" data-target="#ms-quick-bar" data-toggle="hideQuickBar" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
 
         <div class="ms-quick-bar-body tab-content">
-
-
-
-            <div role="tabpanel" class="tab-pane" id="qa-toDo">
-                <div class="ms-quickbar-container ms-todo-list-container ms-scrollable">
-
-                    <form class="ms-add-task-block">
-                        <div class="form-group mx-3 mt-0  fs-14 clearfix">
-                            <input type="text" class="form-control fs-14 float-left" id="task-block" name="todo-block" placeholder="Add Task Block" value="">
-                            <button type="submit" class="ms-btn-icon bg-primary float-right"><i class="material-icons text-disabled">add</i></button>
-                        </div>
-                    </form>
-
-                    <ul class="ms-todo-list">
-                        <li class="ms-card ms-qa-card ms-deletable">
-
-                            <div class="ms-card-header clearfix">
-                                <h6 class="ms-card-title">Task Block Title</h6>
-                                <button data-toggle="tooltip" data-placement="left" title="Add a Task to this block" class="ms-add-task-to-block ms-btn-icon float-right"> <i class="material-icons text-disabled">add</i> </button>
-                            </div>
-
-                            <div class="ms-card-body">
-                                <ul class="ms-list ms-task-block">
-                                    <li class="ms-list-item ms-to-do-task ms-deletable">
-                                        <label class="ms-checkbox-wrap ms-todo-complete">
-                                            <input type="checkbox" value="">
-                                            <i class="ms-checkbox-check"></i>
-                                        </label>
-                                        <span> Task to do </span>
-                                        <button type="submit" class="close"><i class="flaticon-trash ms-delete-trigger"> </i></button>
-                                    </li>
-                                    <li class="ms-list-item ms-to-do-task ms-deletable">
-                                        <label class="ms-checkbox-wrap ms-todo-complete">
-                                            <input type="checkbox" value="">
-                                            <i class="ms-checkbox-check"></i>
-                                        </label>
-                                        <span>Task to do</span>
-                                        <button type="submit" class="close"><i class="flaticon-trash ms-delete-trigger"> </i></button>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="ms-card-footer clearfix">
-                                <a href="#" class="text-disabled mr-2"> <i class="flaticon-archive"> </i> Archive </a>
-                                <a href="#" class="text-disabled  ms-delete-trigger float-right"> <i class="flaticon-trash"> </i> Delete </a>
-                            </div>
-
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
-
             <div role="tabpanel" class="tab-pane" id="qa-reminder">
                 <div class="ms-quickbar-container ms-reminders">
 
