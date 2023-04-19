@@ -122,9 +122,6 @@
             const current = location.pathname.split("/").slice(-1)[0].replace(/^\/|\/$/g, '');
             $('.ms-main-aside .menu-item a', $('#ms-side-nav')).each(function () {
                 const $this = $(this);
-                console.log("Current: " + current)
-                // console.log($this.attr('href'));
-                console.log(typeof (current));
                 if (/^\/?$/.test(current)) {
                     //for root url
                     if ($this.attr('href').indexOf("/") !== -1) {
