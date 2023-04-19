@@ -87,7 +87,6 @@
             </div>
 
             <div role="tabpanel" class="tab-pane" id="qa-notes">
-
                 <ul class="ms-qa-options">
                     <li> <a href="#" data-toggle="modal" data-target="#notes-modal"> <i class="flaticon-sticky-note"></i> New Note </a> </li>
                     <li> <a href="#"> <i class="flaticon-excel"></i> Export to Excel </a> </li>
@@ -101,8 +100,8 @@
                         </div>
                         <div class="ms-card-body">
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vulputate urna in faucibus venenatis. Etiam at dapibus neque,
-                                vel varius metus. Pellentesque eget orci malesuada, venenatis magna et
+                                Lorem ipsum dolor sit amet, consecrate disciplining elite. Nam amputate urn in faucets venation. stream at paribus deque,
+                                vel various metes. Interpellates get orc dalesman, venation magna et
                             </p>
                             <ul class="ms-note-members clearfix mb-0">
                                 <li class="ms-deletable"> <img src="{{url('/')}}/assets/img/people/people-3.jpg" alt="member"> </li>
@@ -134,7 +133,7 @@
                                                 <img src="{{url('/')}}/assets/img/people/people-9.jpg" class="ms-img-round" alt="people">
                                             </div>
                                             <div class="media-body">
-                                                <span>Raymart Sandiago</span>
+                                                <span>Rampart Santiago</span>
                                             </div>
                                         </a>
                                         <a class="media p-2" href="#">

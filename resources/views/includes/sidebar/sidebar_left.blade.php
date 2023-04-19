@@ -10,7 +10,7 @@
     <ul class="accordion ms-main-aside fs-14" id="side-nav-accordion">
         <!-- Dashboard -->
         <li class="menu-item">
-            <a href="{{url("/")}}">
+            <a id="root" href="{{url("/")}}">
                 <span>
                     <i class="material-icons fs-16">dashboard</i>Dashboard
                 </span>

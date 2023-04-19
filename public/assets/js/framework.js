@@ -119,17 +119,16 @@
 
         /* Sets the active class to the currently viewed page */
         function setActiveMenuItem() {
-            var current = location.pathname.split("/").slice(-1)[0].replace(/^\/|\/$/g, '');
+            const current = location.pathname.split("/").slice(-1)[0].replace(/^\/|\/$/g, '');
             $('.ms-main-aside .menu-item a', $('#ms-side-nav')).each(function () {
-                var $this = $(this);
-                if (current === "") {
+                const $this = $(this);
+                console.log("Current: " + current)
+                // console.log($this.attr('href'));
+                console.log(typeof (current));
+                if (/^\/?$/.test(current)) {
                     //for root url
-                    if ($this.attr('href').indexOf("") !== -1) {
-                        $(this).addClass('active');
-                        $(this).parents('.collapse').prev().addClass('active');
-                        if ($(this).parents('.collapse').length) {
-                            $(this).closest('.collapse').addClass('show');
-                        }
+                    if ($this.attr('href').indexOf("/") !== -1) {
+                        $("#root").addClass('active');
                     }
                 } else {
                     //for other url
@@ -148,8 +147,8 @@
         function customToggleActions() {
             $(".ms-toggler").bind('click', function () {
 
-                var target = $(this).data('target');
-                var toggleType = $(this).data('toggle');
+                const target = $(this).data('target');
+                const toggleType = $(this).data('toggle');
 
                 switch (toggleType) {
 
@@ -214,7 +213,7 @@
 
         }
 
-        /* Quickbar */
+        /* Quick bar */
         function quickBarToggle() {
 
             $(".ms-quick-bar-list").on('click', '.ms-has-qa', function () {
@@ -278,7 +277,7 @@
 
         }
 
-        /* Save Quickbar Markup in local application storage */
+        /* Save Quick bar Markup in local application storage */
         function quickBarSaveLocal() {
 
             if (checkReffererProtocol()) {
@@ -288,7 +287,7 @@
 
         }
 
-        /* Populate Quickbar with saved values */
+        /* Populate Quick bar with saved values */
         function quickBarPopulate() {
             if (checkReffererProtocol()) {
                 var localQuickBar = getFromLocal("quickbar_layout");
