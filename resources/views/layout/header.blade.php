@@ -6,8 +6,10 @@
     @stack('meta')
     @stack('title')
     @stack('css')
+    <script src="{{url('/')}}/assets/js/jquery-3.3.1.min.js"></script>
     @stack('js')
     @stack('head-others')
+
 
     <!-- Common styles -->
     @include('includes.styles')

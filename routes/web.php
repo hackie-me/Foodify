@@ -42,9 +42,9 @@ Route::middleware(['auth:sanctum', 'verified', 'quick.bar.data'])->group(functio
         Route::get("/grid", [MenuGrid::class, "index"])->name("menu-grid");
         Route::prefix("product")->group(function () {
             Route::get("/add", [Products::class, "showProductAddPage"]);
-            Route::post("/add", []);
-            Route::get("/update", []);
-            Route::post("/update", []);
+            Route::post("/add", [Products::class, "addProduct"])->name("add-product");
+            Route::get("/update", [Products::class, "showProductUpdatePage"]);
+            Route::post("/update", [Products::class, "updateProduct"])->name("update-product");
         });
     });
 
