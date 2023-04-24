@@ -35,10 +35,10 @@
                                     <td>{{$status}}</td>
                                     <td>$ {{$data->price}}</td>
                                     <td>
-                                        <a href='#'>
+                                        <a href='{{route('update-product', ["id"=>$data->id])}}'>
                                             <i class='fas fa-pencil-alt text-secondary'></i>
                                         </a>
-                                        <a href='a'>
+                                        <a href='{{route('delete-product', ["id"=>$data->id])}}'>
                                             <i class='far fa-trash-alt ms-text-danger'></i>
                                         </a>
                                     </td>

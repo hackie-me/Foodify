@@ -45,6 +45,7 @@ Route::middleware(['auth:sanctum', 'verified', 'quick.bar.data'])->group(functio
             Route::post("/add", [Products::class, "addProduct"])->name("add-product");
             Route::get("/update", [Products::class, "showProductUpdatePage"])->name("update-product");
             Route::post("/update", [Products::class, "updateProduct"])->name("update-product");
+            Route::get("/delete", [Products::class, "deleteProduct"])->name("delete-product");
         });
     });
 

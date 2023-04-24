@@ -38,8 +38,8 @@
                                 </div>
                                 <p>{{$data->description}}</p>
                                 <div class="new mb-0">
-                                    <button type="button" class="btn grid-btn mt-0 btn-sm btn-primary">Remove</button>
-                                    <button type="button" class="btn grid-btn mt-0 btn-sm btn-secondary">Edit</button>
+                                    <a href="{{route('delete-product', ["id"=>$data->id])}}" class="btn grid-btn mt-0 btn-sm btn-primary">Remove</a>
+                                    <a href="{{route('update-product', ["id"=>$data->id])}}" class="btn grid-btn mt-0 btn-sm btn-secondary">Edit</a>
                                 </div>
                             </div>
                         </div>

@@ -12,6 +12,8 @@
 @section('main_content')
     <form class="row" action="{{route('update-product')}}" method="POST" enctype="multipart/form-data">
         @csrf
+        <input type="hidden" value="{{$id}}" name="id">
+        <input type="hidden" value="{{$product->image}}" name="old_image">
         <div class="col-md-12">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb pl-0">
