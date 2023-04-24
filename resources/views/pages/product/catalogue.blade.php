@@ -37,7 +37,7 @@
                             <span>Total Order :<strong class="color-red">150</strong> </span>
                             <span>Revenue :<strong class="color-red">$1000</strong></span>
                         </div>
-                        <a href="{{url('/')}}/menu/product/update/{{$data->id}}/{{$data->name}}" class="btn btn-primary btn-md btn-block">See More</a>
+                        <a href="{{route('update-product', ['id'=> $data->id])}}" class="btn btn-primary btn-md btn-block">See More</a>
                     </div>
                 </div>
             </div>
@@ -59,10 +59,11 @@
     <script src="{{url('/')}}/assets/js/Chart.Financial.js"></script>
     <script>
         $(document).ready(function(){
-            $(".content").slice(0, 4).show();
+            $(".content").hide();
+            $(".content").slice(0, 6).show();
             $("#loadMore").on("click", function(e){
                 e.preventDefault();
-                $(".content:hidden").slice(0, 4).slideDown();
+                $(".content:hidden").slice(0, 6).slideDown();
                 if($(".content:hidden").length == 0) {
                     $("#loadMore").text("No Content").addClass("noContent");
                 }

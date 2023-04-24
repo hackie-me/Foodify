@@ -17,9 +17,12 @@ class Products extends Controller
     }
 
     // Function to Display the Update Page
-    public function showProductUpdatePage($id){
+    public function showProductUpdatePage(Request $request){
+        $validate = $request->validate([
+            "id" => "required|numeric",
+        ]);
         // Get Product Details By I'd
-        $product = \App\Models\Products::where("id", $id)->first();
+        $product = \App\Models\Products::where("id", $request->id)->first();
         // Get All Product Categories and Currencies
         $categories = \App\Models\ProductsCategories::all();
         $currencies = \App\Models\Currencies::all();
@@ -40,6 +43,20 @@ class Products extends Controller
             "currency" => "required",
             "quantity" => "required|numeric"
         ]);
+
+        // Set the Featured, Available and Discounted Status
+        $is_featured = false;
+        $is_available = false;
+        $is_discounted = false;
+        if($request->featured == "on"){
+            $is_featured = true;
+        }
+        if($request->status == "on"){
+            $is_available = true;
+        }
+        if($request->discount == "on"){
+            $is_discounted = true;
+        }
 
         // store All Images as JSON URL in the Database
         $imageUrls = [];
@@ -87,9 +104,9 @@ class Products extends Controller
         $product->category = $category;
         $product->currency = $currency;
         $product->quantity = $request->quantity ? $request->quantity : 1;
-        $product->is_featured = (bool)$request->is_featured;
-        $product->is_available = (bool)$request->is_available;
-        $product->is_discounted = (bool)$request->is_discounted;
+        $product->is_featured = $is_featured;
+        $product->is_available = $is_available;
+        $product->is_discounted = $is_discounted;
         $product->save();
 
         // Redirect to the Product List Page
