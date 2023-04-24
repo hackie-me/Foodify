@@ -22,28 +22,28 @@
                     <div class="table-responsive">
                         <table id="tbl-products-list" class="table w-100 thead-primary">
                             <tbody>
-                            @foreach($products as $data) @endforeach
-                            @php
-                                $image = json_decode($data->image);
-                                $image = $image[0];
-
-                             $status = $data->is_available == 1 ? 'Active' : 'Inactive';
-                            @endphp
-                            <tr>
-                                <td>{{$data->id}}</td>
-                                <td>{{$data->name}}</td>
-                                <td>{{$data->quantity}}</td>
-                                <td>{{$status}}</td>
-                                <td>{{$data->price}}</td>
-                                <td>
-                                    <a href='#'>
-                                        <i class='fas fa-pencil-alt text-secondary'></i>
-                                    </a>
-                                    <a href='a'>
-                                        <i class='far fa-trash-alt ms-text-danger'></i>
-                                    </a>
-                                </td>
-                            </tr>
+                            @foreach($products as $data)
+                                @php
+                                    $image = json_decode($data->image);
+                                    $image = $image[0];
+                                 $status = $data->is_available == 1 ? 'Active' : 'Inactive';
+                                @endphp
+                                <tr>
+                                    <td>{{$data->id}}</td>
+                                    <td>{{$data->name}}</td>
+                                    <td>{{$data->quantity}}</td>
+                                    <td>{{$status}}</td>
+                                    <td>$ {{$data->price}}</td>
+                                    <td>
+                                        <a href='#'>
+                                            <i class='fas fa-pencil-alt text-secondary'></i>
+                                        </a>
+                                        <a href='a'>
+                                            <i class='far fa-trash-alt ms-text-danger'></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>

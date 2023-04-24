@@ -30,14 +30,12 @@
                     </div>
                     <div class="ms-card-body ">
                         <div class="wrapper-new2 ">
-                            <h6>Pizza</h6>
-                            <span class="white">$15</span>
+                            <h6>{{$data->name}}</h6>
+                            <span class="white">$ {{$data->price}}</span>
                         </div>
                         <div class="wrapper-new1">
                             <span>Total Order :<strong class="color-red">150</strong> </span>
                             <span>Revenue :<strong class="color-red">$1000</strong></span>
-
-
                         </div>
                         <a href="#" class="btn btn-primary btn-md btn-block">See More</a>
                     </div>

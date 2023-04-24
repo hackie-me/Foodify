@@ -25,10 +25,9 @@
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                         <div class="ms-card">
                             <div class="ms-card-img">
-                                <img src="{{$image}}" alt="{{$image}}">
+                                <img src="{{$image}}" alt="{{$image}}" style="height: 150px !important; width: 100% !important;">
                             </div>
                             <div class="ms-card-body">
-
                                 <div class="new">
                                     <h6 class="mb-0">{{$data->name}} </h6>
                                     <h6 class="ms-text-primary mb-0">$ {{$data->price}}</h6>
