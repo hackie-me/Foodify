@@ -5,7 +5,7 @@
 @endpush
 
 @push('head-others')
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 @endpush
 
@@ -43,7 +43,8 @@
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom22">Select Catagory</label>
                             <div class="input-group">
-                                <select class="form-control select2" id="validationCustom22" required="" name="category">
+                                <select class="form-control select2" id="validationCustom22" required=""
+                                        name="category">
                                     @foreach($categories as $cat)
                                         <option value="{{$cat->name}}">{{$cat->name}}</option>
                                     @endforeach
@@ -57,7 +58,8 @@
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom23">Currency</label>
                             <div class="input-group">
-                                <select name="currency" class="form-control select2" id="validationCustom23" required="">
+                                <select name="currency" class="form-control select2" id="validationCustom23"
+                                        required="">
                                     @foreach($currencies as $cur)
                                         <option value="{{$cur->name}}">{{$cur->name}}</option>
                                     @endforeach
@@ -71,7 +73,8 @@
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom24">Quantity</label>
                             <div class="input-group">
-                                <input name="quantity" type="text" class="form-control" id="validationCustom24" placeholder="01"
+                                <input name="quantity" type="text" class="form-control" id="validationCustom24"
+                                       placeholder="01"
                                        required="" value="{{$product->quantity}}">
                                 <div class="invalid-feedback">
                                     Quantity
@@ -82,7 +85,8 @@
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom25">Price</label>
                             <div class="input-group">
-                                <input name="price" type="text" class="form-control" id="validationCustom25" placeholder="$10"
+                                <input name="price" type="text" class="form-control" id="validationCustom25"
+                                       placeholder="$10"
                                        required="" value="{{$product->price}}">
                                 <div class="invalid-feedback">
                                     Price
@@ -127,6 +131,7 @@
                                 <div class="carousel-inner">
                                     @php
                                         $thumbnail = true;
+                                        $i = 0;
                                     @endphp
                                     @foreach (json_decode($product->image) as $image)
                                         @if($thumbnail)
@@ -143,6 +148,9 @@
                                                      src="{{$image}}" alt="{{$image}}">
                                             </div>
                                         @endif
+                                        @php
+                                            $i++;
+                                        @endphp
                                     @endforeach
                                 </div>
                                 <ol class="carousel-indicators">
@@ -165,6 +173,9 @@
                                                      src="{{$image}}" alt="Second slide">
                                             </li>
                                         @endif
+                                        @php
+                                            $i++;
+                                        @endphp
                                     @endforeach
                                 </ol>
                             </div>
@@ -222,9 +233,9 @@
             });
 
             @if($errors->any())
-                @foreach($errors->all() as $error)
-                    toastr.error('{{$error}}', 'Validation Error');
-                @endforeach
+            @foreach($errors->all() as $error)
+            toastr.error('{{$error}}', 'Validation Error');
+            @endforeach
             @endif
 
             // Get references to the relevant DOM elements
@@ -234,7 +245,6 @@
 
             // Listen for changes to the file input field
             $input.on('change', function () {
-                carousel.show()
                 // Get the files that were selected
                 const files = $input.get(0).files;
 
