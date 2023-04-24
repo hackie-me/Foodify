@@ -41,9 +41,9 @@ Route::middleware(['auth:sanctum', 'verified', 'quick.bar.data'])->group(functio
         Route::get("/list", [MenuList::class, "index"])->name("menu-list");
         Route::get("/grid", [MenuGrid::class, "index"])->name("menu-grid");
         Route::prefix("product")->group(function () {
-            Route::get("/add", [Products::class, "showProductAddPage"]);
+            Route::get("/add", [Products::class, "showProductAddPage"])->name("add-product");
             Route::post("/add", [Products::class, "addProduct"])->name("add-product");
-            Route::get("/update", [Products::class, "showProductUpdatePage"]);
+            Route::get("/update/{id}/{name}", [Products::class, "showProductUpdatePage"])->name("update-product");
             Route::post("/update", [Products::class, "updateProduct"])->name("update-product");
         });
     });

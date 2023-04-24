@@ -16,6 +16,16 @@ class Products extends Controller
         return view("pages.product.add", compact("categories", "currencies"));
     }
 
+    // Function to Display the Update Page
+    public function showProductUpdatePage($id){
+        // Get Product Details By I'd
+        $product = \App\Models\Products::where("id", $id)->first();
+        // Get All Product Categories and Currencies
+        $categories = \App\Models\ProductsCategories::all();
+        $currencies = \App\Models\Currencies::all();
+        return view("pages.product.update", compact("product", "categories", "currencies"));
+    }
+
     // Function to Add a Product
     public function addProduct(Request $request)
     {

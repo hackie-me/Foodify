@@ -37,7 +37,7 @@
                             <span>Total Order :<strong class="color-red">150</strong> </span>
                             <span>Revenue :<strong class="color-red">$1000</strong></span>
                         </div>
-                        <a href="#" class="btn btn-primary btn-md btn-block">See More</a>
+                        <a href="{{url('/')}}/menu/product/update/{{$data->id}}/{{$data->name}}" class="btn btn-primary btn-md btn-block">See More</a>
                     </div>
                 </div>
             </div>
