@@ -17,128 +17,36 @@
         </div>
 
 
-        <div class="col-lg-4 col-md-6 col-sm-6">
-            <div class="ms-card">
-                <div class="ms-card-img">
-                    <img src="{{url('/')}}/assets/img/foodify/food-1.jpg" alt="card_img">
-                </div>
-                <div class="ms-card-body ">
-                    <div class="wrapper-new2 ">
-                        <h6>Pizza</h6>
-                        <span class="white">$15</span>
+        {{-- All Products List--}}
+        @foreach($products as $data)
+            <div class="col-lg-4 col-md-6 col-sm-6 content">
+                <div class="ms-card">
+                    <div class="ms-card-img">
+                        @php
+                            $image = json_decode($data->image);
+                            $image = $image[0];
+                        @endphp
+                        <img src="{{$image}}" style="height: 200px!important; width: 100% !important;" alt="card_img">
                     </div>
-                    <div class="wrapper-new1">
-                        <span>Total Order :<strong class="color-red">150</strong> </span>
-                        <span>Revenue :<strong class="color-red">$1000</strong></span>
+                    <div class="ms-card-body ">
+                        <div class="wrapper-new2 ">
+                            <h6>Pizza</h6>
+                            <span class="white">$15</span>
+                        </div>
+                        <div class="wrapper-new1">
+                            <span>Total Order :<strong class="color-red">150</strong> </span>
+                            <span>Revenue :<strong class="color-red">$1000</strong></span>
 
 
+                        </div>
+                        <a href="#" class="btn btn-primary btn-md btn-block">See More</a>
                     </div>
-                    <a href="#" class="btn btn-primary btn-md btn-block">See More</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-6">
-            <div class="ms-card">
-                <div class="ms-card-img">
-                    <img src="{{url('/')}}/assets/img/foodify/food-2.jpg" alt="card_img">
-                </div>
-                <div class="ms-card-body ">
-                    <div class="wrapper-new2">
-                        <h6>Sandwiches</h6>
-                        <span class="white">$23</span>
-                    </div>
-                    <div class="wrapper-new1">
-                        <span>Total Order :<strong class="color-red">150</strong> </span>
-                        <span>Revenue :<strong class="color-red">$1000</strong></span>
-
-
-                    </div>
-                    <a href="#" class="btn btn-primary btn-block">See More</a>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-6">
-            <div class="ms-card">
-                <div class="ms-card-img">
-                    <img src="{{url('/')}}/assets/img/foodify/food-3.jpg" alt="card_img">
-                </div>
-                <div class="ms-card-body ">
-                    <div class="wrapper-new2">
-                        <h6>Fries</h6>
-                        <span class="white">$15</span>
-                    </div>
-                    <div class="wrapper-new1">
-                        <span>Total Order :<strong class="color-red">100</strong> </span>
-                        <span>Revenue :<strong class="color-red">$1400</strong></span>
+        @endforeach
 
-
-                    </div>
-                    <a href="#" class="btn btn-primary btn-block">See More</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-6">
-            <div class="ms-card">
-                <div class="ms-card-img">
-                    <img src="{{url('/')}}/assets/img/foodify/food-4.jpg" alt="card_img">
-                </div>
-                <div class="ms-card-body ">
-                    <div class="wrapper-new2">
-                        <h6>Burger</h6>
-                        <span class="white">$34</span>
-                    </div>
-                    <div class="wrapper-new1">
-                        <span>Total Order :<strong class="color-red">200</strong> </span>
-                        <span>Revenue :<strong class="color-red">$5000</strong></span>
-
-
-                    </div>
-                    <a href="#" class="btn btn-primary btn-block">See More</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-6">
-            <div class="ms-card">
-                <div class="ms-card-img">
-                    <img src="{{url('/')}}/assets/img/foodify/food-5.jpg" alt="card_img">
-                </div>
-                <div class="ms-card-body ">
-                    <div class="wrapper-new2">
-                        <h6>Grilled</h6>
-                        <span class="white">$25</span>
-                    </div>
-                    <div class="wrapper-new1">
-                        <span>Total Order :<strong class="color-red">180</strong> </span>
-                        <span>Revenue :<strong class="color-red">$2000</strong></span>
-
-
-                    </div>
-                    <a href="#" class="btn btn-primary btn-block">See More</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-6">
-            <div class="ms-card">
-                <div class="ms-card-img">
-                    <img src="{{url('/')}}/assets/img/foodify/food-6.jpg" alt="card_img">
-                </div>
-                <div class="ms-card-body ">
-                    <div class="wrapper-new2">
-                        <h6>Dumplings</h6>
-                        <span class="white">$15</span>
-                    </div>
-                    <div class="wrapper-new1">
-                        <span>Total Order :<strong class="color-red">150</strong> </span>
-                        <span>Revenue :<strong class="color-red">$3000</strong></span>
-
-
-                    </div>
-                    <a href="#" class="btn btn-primary btn-block">See More</a>
-                </div>
-            </div>
-        </div>
         <div class="col-xl-12 col-md-12">
-            <div class="load">
+            <div class="load" id="loadMore">
                 <i class="fas fa-redo alt  space text-muted" aria-hidden="true"></i><span class="more">Load More</span>
             </div>
         </div>
@@ -151,4 +59,16 @@
     <script src="{{url('/')}}/assets/js/jquery.webticker.min.js"></script>
     <script src="{{url('/')}}/assets/js/Chart.bundle.min.js"></script>
     <script src="{{url('/')}}/assets/js/Chart.Financial.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".content").slice(0, 4).show();
+            $("#loadMore").on("click", function(e){
+                e.preventDefault();
+                $(".content:hidden").slice(0, 4).slideDown();
+                if($(".content:hidden").length == 0) {
+                    $("#loadMore").text("No Content").addClass("noContent");
+                }
+            });
+        })
+    </script>
 @endsection

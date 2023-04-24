@@ -15,196 +15,38 @@
                 </ol>
             </nav>
             <div class="row">
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                    <div class="ms-card">
-                        <div class="ms-card-img">
-                            <img src="{{url('/')}}/assets/img/foodify/food-1.jpg" alt="card_img">
-                        </div>
-                        <div class="ms-card-body">
+                @foreach($products as $data)
+                    @php
+                        $image = json_decode($data->image);
+                        $image = $image[0];
+                        $status = $data->quantity > 0 ? 'In Stock' : 'Out of Stock';
+                        $indicator = $data->quantity > 0 ? 'success' : 'danger';
+                    @endphp
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                        <div class="ms-card">
+                            <div class="ms-card-img">
+                                <img src="{{$image}}" alt="{{$image}}">
+                            </div>
+                            <div class="ms-card-body">
 
-                            <div class="new">
-                                <h6 class="mb-0">Veggies </h6>
-                                <h6 class="ms-text-primary mb-0">$45.50</h6>
-                            </div>
-                            <div class="new meta">
-                                <p>Qty:1467 </p>
-                                <span class="badge badge-success">In Stock</span>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur
-                                adipiscing</p>
-                            <div class="new mb-0">
-                                <button type="button" class="btn grid-btn mt-0 btn-sm btn-primary">Remove</button>
-                                <button type="button" class="btn grid-btn mt-0 btn-sm btn-secondary">Edit</button>
+                                <div class="new">
+                                    <h6 class="mb-0">{{$data->name}} </h6>
+                                    <h6 class="ms-text-primary mb-0">$ {{$data->price}}</h6>
+                                </div>
+                                <div class="new meta">
+                                    <p>Qty: {{$data->quantity}} </p>
+                                    <span class="badge badge-{{$indicator}}">{{$status}}</span>
+                                </div>
+                                <p>{{$data->description}}</p>
+                                <div class="new mb-0">
+                                    <button type="button" class="btn grid-btn mt-0 btn-sm btn-primary">Remove</button>
+                                    <button type="button" class="btn grid-btn mt-0 btn-sm btn-secondary">Edit</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                    <div class="ms-card">
-                        <div class="ms-card-img">
-                            <img src="{{url('/')}}/assets/img/foodify/food-2.jpg" alt="card_img">
-                        </div>
-                        <div class="ms-card-body">
-                            <div class="new">
-                                <h6 class="mb-0">Garlic Bread </h6>
-                                <h6 class="ms-text-primary mb-0">$45.50</h6>
-                            </div>
-                            <div class="new meta">
-                                <p>Qty:6224 </p>
-                                <span class="badge badge-primary">Out of Stock</span>
-                            </div>
+                @endforeach
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur
-                                adipiscing</p>
-                            <div class="new mb-0">
-                                <button type="button" class="btn grid-btn mt-0 btn-sm btn-primary">Remove</button>
-                                <button type="button" class="btn grid-btn mt-0 btn-sm btn-secondary">Edit</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                    <div class="ms-card">
-                        <div class="ms-card-img">
-                            <img src="{{url('/')}}/assets/img/foodify/food-3.jpg" alt="card_img">
-                        </div>
-                        <div class="ms-card-body">
-                            <div class="new">
-                                <h6 class="mb-0">Veg Sandwich </h6>
-                                <h6 class="ms-text-primary mb-0">$45.50</h6>
-                            </div>
-                            <div class="new meta">
-                                <p>Qty:1467 </p>
-                                <span class="badge badge-success">In Stock</span>
-                            </div>
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur
-                                adipiscing</p>
-                            <div class="new mb-0">
-                                <button type="button" class="btn grid-btn mt-0 btn-sm btn-primary">Remove</button>
-                                <button type="button" class="btn  grid-btn mt-0 btn-sm btn-secondary">Edit</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                    <div class="ms-card">
-                        <div class="ms-card-img">
-                            <img src="{{url('/')}}/assets/img/foodify/food-4.jpg" alt="card_img">
-                        </div>
-                        <div class="ms-card-body">
-                            <div class="new">
-                                <h6 class="mb-0">Roast Sandwich</h6>
-                                <h6 class="ms-text-primary mb-0">$45.50</h6>
-                            </div>
-                            <div class="new meta">
-                                <p>Qty:6224 </p>
-                                <span class="badge badge-primary">Out of Stock</span>
-                            </div>
-
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur
-                                adipiscing</p>
-                            <div class="new mb-0">
-                                <button type="button" class="btn grid-btn mt-0 btn-sm btn-primary">Remove</button>
-                                <button type="button" class="btn grid-btn mt-0 btn-sm btn-secondary">Edit</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                    <div class="ms-card">
-                        <div class="ms-card-img">
-                            <img src="{{url('/')}}/assets/img/foodify/food-5.jpg" alt="card_img">
-                        </div>
-                        <div class="ms-card-body">
-                            <div class="new">
-                                <h6 class="mb-0">Burger</h6>
-                                <h6 class="ms-text-primary mb-0">$45.50</h6>
-                            </div>
-                            <div class="new meta">
-                                <p>Qty:1467 </p>
-                                <span class="badge badge-success">In Stock</span>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur
-                                adipiscing</p>
-                            <div class="new mb-0">
-                                <button type="button" class="btn grid-btn mt-0 btn-sm btn-primary">Remove</button>
-                                <button type="button" class="btn grid-btn mt-0 btn-sm btn-secondary">Edit</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                    <div class="ms-card">
-                        <div class="ms-card-img">
-                            <img src="{{url('/')}}/assets/img/foodify/food-6.jpg" alt="card_img">
-                        </div>
-                        <div class="ms-card-body">
-                            <div class="new">
-                                <h6 class="mb-0">Veggies </h6>
-                                <h6 class="ms-text-primary mb-0">$45.50</h6>
-                            </div>
-                            <div class="new meta">
-                                <p>Qty:1467 </p>
-                                <span class="badge badge-success">In Stock</span>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur
-                                adipiscing</p>
-                            <div class="new mb-0">
-                                <button type="button" class="btn grid-btn mt-0 btn-sm btn-primary">Remove</button>
-                                <button type="button" class="btn grid-btn mt-0 btn-sm btn-secondary">Edit</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                    <div class="ms-card">
-                        <div class="ms-card-img">
-                            <img src="{{url('/')}}/assets/img/foodify/food-7.jpg" alt="card_img">
-                        </div>
-                        <div class="ms-card-body">
-                            <div class="new">
-                                <h6 class="mb-0">Pepperoni Pizza </h6>
-                                <h6 class="ms-text-primary mb-0">$45.50</h6>
-                            </div>
-                            <div class="new meta">
-                                <p>Qty:6224 </p>
-                                <span class="badge badge-primary">Out of Stock</span>
-                            </div>
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur
-                                adipiscing</p>
-                            <div class="new mb-0">
-                                <button type="button" class="btn grid-btn mt-0 btn-sm btn-primary">Remove</button>
-                                <button type="button" class="btn grid-btn mt-0 btn-sm btn-secondary">Edit</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                    <div class="ms-card">
-                        <div class="ms-card-img">
-                            <img src="{{url('/')}}/assets/img/foodify/food-8.jpg" alt="card_img">
-                        </div>
-                        <div class="ms-card-body">
-                            <div class="new">
-                                <h6 class="mb-0">Egg McMuffin </h6>
-                                <h6 class="ms-text-primary mb-0">$45.50</h6>
-                            </div>
-                            <div class="new meta">
-                                <p>Qty:1467 </p>
-                                <span class="badge badge-success">In Stock</span>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur
-                                adipiscing</p>
-                            <div class="new mb-0">
-                                <button type="button" class="btn grid-btn mt-0 btn-sm btn-primary">Remove</button>
-                                <button type="button" class="btn grid-btn mt-0 btn-sm btn-secondary">Edit</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

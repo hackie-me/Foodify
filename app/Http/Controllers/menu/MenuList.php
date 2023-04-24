@@ -9,6 +9,8 @@ class MenuList extends Controller
     // Function to display the menu list
     public function index()
     {
-        return view("pages.product.list");
+        // Get All Products
+        $products = \App\Models\Products::all();
+        return view("pages.product.list")->with(compact("products"));
     }
 }

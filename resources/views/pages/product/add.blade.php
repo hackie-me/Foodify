@@ -44,10 +44,9 @@
                             <label for="validationCustom22">Select Catagory</label>
                             <div class="input-group">
                                 <select class="form-control select2" id="validationCustom22" required="" name="category">
-                                    <option value="category 1">Catagory 1</option>
-                                    <option value="category 2">Catagory 2</option>
-                                    <option value="category 3">Catagory 3</option>
-                                    <option value="category 4">Catagory 4</option>
+                                    @foreach($categories as $cat)
+                                        <option value="{{$cat->name}}">{{$cat->name}}</option>
+                                    @endforeach
                                 </select>
                                 <div class="invalid-feedback">
                                     Please select a Catagory.
@@ -59,9 +58,9 @@
                             <label for="validationCustom23">Currency</label>
                             <div class="input-group">
                                 <select name="currency" class="form-control select2" id="validationCustom23" required="">
-                                    <option value="USD">USD</option>
-                                    <option value="BITCOIN">Bitcoins</option>
-                                    <option value="EURO">EURO</option>
+                                    @foreach($currencies as $cur)
+                                        <option value="{{$cur->name}}">{{$cur->name}}</option>
+                                    @endforeach
                                 </select>
                                 <div class="invalid-feedback">
                                     Please select a Currency
