@@ -98,7 +98,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Markdown Mail Settings
+    | Markdown Mail SettingsController
     |--------------------------------------------------------------------------
     |
     | If you are using Markdown based email rendering, you may configure your

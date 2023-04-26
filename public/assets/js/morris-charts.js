@@ -37,9 +37,9 @@
   new Morris.Donut({
     element: 'doughnut-chart',
     data: [
-      {label: "Download Sales", value: 12},
-      {label: "In-Store Sales", value: 30},
-      {label: "Mail-Order Sales", value: 20}
+      {label: "Download SalesController", value: 12},
+      {label: "In-Store SalesController", value: 30},
+      {label: "Mail-Order SalesController", value: 20}
     ]
   });
 

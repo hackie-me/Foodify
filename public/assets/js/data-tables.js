@@ -19,7 +19,7 @@
             {title: "Quantity"}, {title: "Status"}, {title: "Price"}], scrollY: 400
     });
     var tableFour = $('#data-table-4').DataTable({
-        data: dataSet, columns: [{title: "Customer ID"}, {title: "Customer Name"},
+        data: dataSet, columns: [{title: "CustomerID"}, {title: "CustomerName"},
 
             {title: "Location"}, {title: "Email ID"}, {title: "Ordered Item"}, {title: "Bill"}
 

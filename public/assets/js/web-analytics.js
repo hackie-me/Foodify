@@ -46,7 +46,7 @@
               data: data_1
           },
           {
-              label: "Sales",
+              label: "SalesController",
               borderColor: gradientStrokePrimaryDanger,
               pointBorderWidth: 9,
               pointRadius: 9,

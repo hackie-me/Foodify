@@ -9,7 +9,7 @@ class MenuGrid extends Controller
     // Function to show the menu grid
     public function index()
     {
-        // Get All Products
+        // Get All ProductsController
         $products = \App\Models\Products::all();
         return view("pages.product.grid")->with(compact("products"));
     }

@@ -10,7 +10,7 @@ class MenuCatalogue extends Controller
     // Function to show the catalogue page
     public function index()
     {
-        // Get All Products
+        // Get All ProductsController
         $products = Products::all();
         return view("pages.product.catalogue")->with(compact("products"));
     }
